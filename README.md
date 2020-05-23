@@ -16,4 +16,4 @@
   pip3 install colorama
 
 # Запуск
-python3 n.py
+cd VKTOOL && python3 n.py
