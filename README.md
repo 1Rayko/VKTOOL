@@ -19,3 +19,6 @@
 
 # Запуск
 cd VKTOOL && python3 n.py
+
+# Обновления
+ git pull 
