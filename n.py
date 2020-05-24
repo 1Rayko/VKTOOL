@@ -18,47 +18,135 @@ banner = ["""\033[34m____   ________  __. __                .__
     """\033[35m\  /|/_|_ _  _ |
  \/ |\ | (_)(_)|
                 \033[39m by @kotik06 (sudoreboot2020)"""]
+red = '\033[31m'
+yellow = '\033[33m'
+reset = '\033[39m'
+mag = '\033[35m'
+green = '\033[32m'
+#ESC [ 30 m      # black
+#ESC [ 31 m      # red
+#ESC [ 32 m      # green
+#ESC [ 33 m      # yellow
+#ESC [ 34 m      # blue
+#ESC [ 35 m      # magenta
+#ESC [ 36 m      # cyan
+#ESC [ 37 m      # white
+#ESC [ 39 m      # reset
 os.system('clear')
 print(random.choice(banner))
+print("""
+{1}[{0}1{1}]- накрутка комментариев 
+{1}[{0}2{1}]- накрутка постов {2}
+""".format(red,yellow,reset))
+opt = str(input('\033[35m[-->]\033[39m'))
 token = str(input('\033[35mВведите токен:'))
-num = str(input('\033[35m[1] - комментарии к посту в группе\n[2] - коментарии к посту на стене пользователя\n[-->]\033[39m'))
-owner = int(input("\033[35mВведите числовой id профиля/группы(Указывайте только числами):\033[39m"))
-post = int(input("\033[35mВведите числовой id поста(Указывайте только числами):\033[39m"))
-mg =  str(input("\033[35mВведите коментарий:\033[39m"))
-n = int(input('Сколько коментариев (от 1 до 500):\033[39m'))
+if opt=='1':
+
+    a = """{1}[{0}1{1}] - комментарии к посту в группе\n{1}[{0}2{1}] - коментарии к посту на стене пользователя\n""".format(red,yellow)
+    print(a)
+    num = str(input('\033[35m[-->]\033[39m'))
+    owner = int(input("\033[35mВведите числовой id профиля/группы(Указывайте только числами):\033[39m"))
+    post = int(input("\033[35mВведите числовой id поста(Указывайте только числами):\033[39m"))
+    mg =  str(input("\033[35mВведите коментарий:\033[39m"))
+    ahtung = '''{0}У большинства пользователей капча!!!{1}'''.format(red,reset)
+    print(ahtung)
+    n = int(input('Сколько коментариев (от 1 до 500):\033[39m'))
+    U_time = int(input('Введите задержку от капчи  (ЦЕЛЫМ Числом в секундах желательно >10 сек):'))
+    st = int(input('Введите задержку отправки коментария (ЦЕЛЫМ Числом в секундах):'))
+    def login ():
+        if token == '':
+            return True
+        else:
+            session = vk.Session(access_token=token)
+            return vk.API(session ,v='5.92', lang='ru')
+    vk_session = vk_api.VkApi(token=token)
+    vk = vk_session.get_api()
+    api = vk
+    i = 1
+    al = '%d коментарий'%(i)
+    kaptcha = 'ждем %s секунд от капчи'%(U_time)
+    if num == ('1'):
+        def krutka():
+            for i in range (n):
+                time.sleep(st)
+                vk.wall.createComment(owner_id=-owner, post_id=post, message=mg)
+                i+=1
+                print('%s%s комментарий отправлен' % (green,i))
+                if i == 10:
+                    print(kaptcha)
+                    i = 1
+                    time.sleep(U_time)
 
 
-def login ():
-    if token == '':
-        return True
-    else:
-        session = vk.Session(access_token=token)
-        return vk.API(session ,v='5.92', lang='ru')
-vk_session = vk_api.VkApi(token=token)
-vk = vk_session.get_api()
-api = vk
-i = 1
-al = '%d коментарий'%(i)
+        krutka()
+    elif num == ('2'):
+        def krutka():
+            for i in range (n):
+                time.sleep(st)
+                vk.wall.createComment(owner_id=owner, post_id=post, message=mg)
+                i+=1
+                print('%s%s комментарий отправлен' % (green,i))
+                time.sleep(1)
+                if i == 10:
+                    print(kaptcha)
+                    i = 1
+                    time.sleep(U_time)
 
-if num == ('1'):
-    def krutka():
-        for i in range (n):
-            vk.wall.createComment(owner_id=-owner, post_id=post, message=mg)
-            i+=1
-            print('%s коментарий отправлен'%(i))
-            if i >= 499:
-                print('Капча :( выключай и жди 5 мин')
-                i = 0
 
-    krutka()
-elif num == ('2'):
-    def krutka():
-        for i in range (n):
-            vk.wall.createComment(owner_id=owner, post_id=post, message=mg)
-            i+=1
-            print('%s коментарий отправлен'%(i))
-            if i >= 499:
-                print('Капча :( выключай и жди 5 мин')
-                i = 0
+        krutka()
 
-    krutka()
+elif opt == '2':
+    a = """{1}[{0}1{1}] -  спам  в группу\n{1}[{0}2{1}] - спам на стену пользователя\n""".format(red, yellow)
+    print(a)
+    num = str(input('\033[35m[-->]\033[39m'))
+    owner = int(input("\033[35mВведите числовой id профиля/группы(Указывайте только числами):\033[39m"))
+    mg = str(input("\033[35mВведите содержание поста:\033[39m"))
+    ahtung = '''{0}У большинства пользователей капча!!!{1}'''.format(red, reset)
+    print(ahtung)
+    n = int(input('Сколько постов (от 1 до 500):\033[39m'))
+    st = int(input('Введите задержку отправки коментария (ЦЕЛЫМ Числом в секундах):'))
+    U_time = int(input('Введите задержку от капчи  (ЦЕЛЫМ Числом в секундах желательно 10 сек):'))
+
+    def login():
+        if token == '':
+            return True
+        else:
+            session = vk.Session(access_token=token)
+            return vk.API(session, v='5.92', lang='ru')
+
+
+    vk_session = vk_api.VkApi(token=token)
+    vk = vk_session.get_api()
+    api = vk
+    i = 1
+    al = '%d пост отправлен' % (i)
+
+    if num == ('1'):
+        def spam():
+            for i in range(n):
+                time.sleep(st)
+                vk.wall.post(owner_id=-owner,from_group=0,message=mg)
+                i += 1
+                print('%s%s пост отправлен' % (green,i))
+                if i == 10:
+                    print(kaptcha)
+                    i = 1
+                    time.sleep(U_time)
+
+
+        spam()
+    elif num == ('2'):
+        def spam():
+            for i in range(n):
+                time.sleep(st)
+                vk.wall.post(owner_id=owner, message=mg)
+                i += 1
+                print('%s%s пост отправлен' % (green,i))
+                time.sleep(1)
+                if i >= 10:
+                    print(kaptcha)
+                    i = 1
+                    time.sleep(U_time)
+
+
+        spam()
