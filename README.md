@@ -21,5 +21,4 @@
 cd VKTOOL && python3 n.py
 
 # Обновления
- cd VKTOOL
- git pull 
+ cd VKTOOL && git pull 
