@@ -168,7 +168,7 @@ elif opt == '2':
 
 elif opt == '3':
     print('!!!srakoeb2007 is beta!!!')
-    l = str(input('[1]-add token(profile)\n[2]-add message\n[3]-start'))
+    l = str(input('[1]-add token(profile)\n[2]-add message\n[3]-start\n[-->]'))
     if l == '1':
         tk = str(input('token :'))
 
