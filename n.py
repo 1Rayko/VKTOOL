@@ -53,9 +53,9 @@ print("""
 {1}[{0}3{1}]- srakoeb2007(beta) {2}
 """.format(red,yellow,reset))
 opt = str(input('\033[35m[-->]\033[39m'))
-token = str(input('\033[35mВведите токен:'))
-if opt=='1':
 
+if opt=='1':
+    token = str(input('\033[35mВведите токен:'))
     a = """{1}[{0}1{1}] - комментарии к посту в группе\n{1}[{0}2{1}] - коментарии к посту на стене пользователя\n""".format(red,yellow)
     print(a)
     num = str(input('\033[35m[-->]\033[39m'))
@@ -110,6 +110,7 @@ if opt=='1':
         krutka()
 
 elif opt == '2':
+    token = str(input('\033[35mВведите токен:'))
     a = """{1}[{0}1{1}] -  спам  в группу\n{1}[{0}2{1}] - спам на стену пользователя\n""".format(red, yellow)
     print(a)
     num = str(input('\033[35m[-->]\033[39m'))
