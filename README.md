@@ -16,6 +16,8 @@
   
   pip3 install colorama
 
+  pip3 python3_anticaptcha
+
 
   # Linux
   
@@ -31,9 +33,13 @@
   
   pip3 install colorama
 
+  pip3 install python3_anticaptcha
+
 # Запуск
 
 cd VKTOOL && python3 n.py
 
 # Обновления
  cd VKTOOL && git pull 
+
+# !srakoeb2007 is beta! 

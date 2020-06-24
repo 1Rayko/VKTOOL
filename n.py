@@ -1,5 +1,18 @@
+# -*- coding: utf-8 -*-
 import vk_api,time,random,vk,os
 from colorama import init
+import requests, vk_api, random,time,traceback,json,importlib
+try:
+    import info
+    import pod
+except:
+    pass
+from threading import Thread
+import traceback
+from vk_api.longpoll import VkLongPoll, VkEventType, VkChatEventType
+from vk_api.bot_longpoll import VkBotLongPoll, VkBotEventType, VkBotMessageEvent
+from python3_anticaptcha import ImageToTextTask
+from python3_anticaptcha import errors
 banner = ["""\033[34m____   ________  __. __                .__   
 \   \ /   /    |/ _|/  |_  ____   ____ |  |  
  \   Y   /|      < \   __\/  _ \ /  _ \|  |  
@@ -37,6 +50,7 @@ print(random.choice(banner))
 print("""
 {1}[{0}1{1}]- накрутка комментариев 
 {1}[{0}2{1}]- накрутка постов {2}
+{1}[{0}3{1}]- srakoeb2007(beta) {2}
 """.format(red,yellow,reset))
 opt = str(input('\033[35m[-->]\033[39m'))
 token = str(input('\033[35mВведите токен:'))
@@ -150,3 +164,25 @@ elif opt == '2':
 
 
         spam()
+
+elif opt == '3':
+    print('!!!srakoeb2007 is beta!!!')
+    l = str(input('[1]-add token(profile)\n[2]-add message\n[3]-start'))
+    if l == '1':
+        tk = str(input('token :'))
+
+        token = open ('token.txt','a+')
+        token.white(str(tk)+'\n')
+        token.close()
+
+    elif l == '2':
+        mg = str(input('message :'))
+
+        me = open ('message.txt','a+')
+        me.white(str(mg)+'\n')
+        me.close()
+
+
+    elif l == '3':
+
+        os.system('python3 srakoeb2007.py')
