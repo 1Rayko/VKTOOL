@@ -16,7 +16,7 @@
   
   pip3 install colorama
 
-  pip3 python3_anticaptcha
+  pip3 install python3_anticaptcha
 
 
   # Linux
