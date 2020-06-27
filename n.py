@@ -19,7 +19,7 @@ banner = ["""\033[34m____   ________  __. __                .__
   \     / |    |  \ |  | (  <_> |  <_> )  |__
    \___/  |____|__ \|__|  \____/ \____/|____/
                   \/                         
-                  \033[39m by @kotik06 (sudoreboot2020)""",
+                  \033[39m by @kotik06 (sudoreboot2020) && alonesain""",
     """\033[31m _   _ _   ___              _ 
 | | | | | / / |            | |
 | | | | |/ /| |_ ___   ___ | |
@@ -27,10 +27,10 @@ banner = ["""\033[34m____   ________  __. __                .__
 \ \_/ / |\  \ || (_) | (_) | |
  \___/\_| \_/\__\___/ \___/|_|\033[39m
                               
-                              by @kotik06 (sudoreboot2020)""",
+                              by @kotik06 (sudoreboot2020) && alonesain""",
     """\033[35m\  /|/_|_ _  _ |
  \/ |\ | (_)(_)|
-                \033[39m by @kotik06 (sudoreboot2020)"""]
+                \033[39m by @kotik06 (sudoreboot2020) && alonesain"""]
 red = '\033[31m'
 yellow = '\033[33m'
 reset = '\033[39m'
@@ -51,6 +51,7 @@ print("""
 {1}[{0}1{1}]- накрутка комментариев 
 {1}[{0}2{1}]- накрутка постов {2}
 {1}[{0}3{1}]- srakoeb2007(beta) {2}
+{1}[{0}4{1}]- мульти накрутка коментариев {2}
 """.format(red,yellow,reset))
 opt = str(input('\033[35m[-->]\033[39m'))
 
@@ -187,3 +188,55 @@ elif opt == '3':
     elif l == '3':
 
         os.system('python3 srakoeb2007.py')
+
+elif opt == '4':
+    print("""
+{1}[{0}1{1}] - прочитать токены
+{1}[{0}2{1}] - добавить
+{1}[{0}3{1}] - запустить""".format(red,yellow,reset))
+    h = str(input('\033[35m[-->]\033[39m'))
+
+    if h == '1':
+        file = open("tk.txt", "r",encoding='utf-8')#сука файл
+        apikey = file.readlines()
+        token = [line.rstrip() for line in apikey]
+        b = 0
+        print(str(len(token))+' токена(ов)')
+        while b<len(token) :
+            print(token[b])
+               
+            b+=1
+        file.close()    
+    elif h == '2':
+
+        file = open("tk.txt", "a+",encoding='utf-8')
+        tk = str(input("token:"))
+        file.write(str(tk)+'\n')
+        print('done')
+        file.close()
+
+    elif h == '3':
+        id = int(input('id (профиля в формате 1, паблика -1):'))
+        post = int(input('id поста:'))
+        mg = str(input('Сообщение :'))
+        U_time =int(input("Задержка отправки (челое число в секундах):"))
+        
+        file = open("tk.txt", "r",encoding='utf-8')#сука файл
+        apikey = file.readlines()
+        token = [line.rstrip() for line in apikey]
+        b = 0
+        print(str(len(token))+' токена(ов)')
+
+        while 1:
+
+
+            while b<len(token) :
+                print(token[b])
+                vk_session = vk_api.VkApi(token=token[b])
+                vk = vk_session.get_api()
+                vk.wall.createComment(owner_id=id, post_id=post, message=mg)
+                print('send')
+                time.sleep(U_time)
+                b+=1
+                continue
+            b=0
