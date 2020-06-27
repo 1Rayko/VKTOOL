@@ -193,7 +193,8 @@ elif opt == '4':
     print("""
 {1}[{0}1{1}] - прочитать токены
 {1}[{0}2{1}] - добавить
-{1}[{0}3{1}] - запустить""".format(red,yellow,reset))
+{1}[{0}3{1}] - очистить файл с токенами
+{1}[{0}4{1}] - запустить""".format(red,yellow,reset))
     h = str(input('\033[35m[-->]\033[39m'))
 
     if h == '1':
@@ -214,8 +215,11 @@ elif opt == '4':
         file.write(str(tk)+'\n')
         print('done')
         file.close()
-
     elif h == '3':
+        os.system('rm -rv tk.txt')
+        os.system('touch tk.txt')
+
+    elif h == '4':
         id = int(input('id (профиля в формате 1, паблика -1):'))
         post = int(input('id поста:'))
         mg = str(input('Сообщение :'))
