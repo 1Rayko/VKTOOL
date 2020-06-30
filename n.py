@@ -52,6 +52,7 @@ print("""
 {1}[{0}2{1}]- накрутка постов {2}
 {1}[{0}3{1}]- srakoeb2007(beta) {2}
 {1}[{0}4{1}]- мульти накрутка коментариев {2}
+{1}[{0}5{1}]- парсер пользователей из паблика + добавление их в друзья {2}
 """.format(red,yellow,reset))
 opt = str(input('\033[35m[-->]\033[39m'))
 
@@ -74,40 +75,53 @@ if opt=='1':
         else:
             session = vk.Session(access_token=token)
             return vk.API(session ,v='5.92', lang='ru')
-    vk_session = vk_api.VkApi(token=token)
-    vk = vk_session.get_api()
+
     api = vk
+
     i = 1
     al = '%d коментарий'%(i)
     kaptcha = 'ждем %s секунд от капчи'%(U_time)
     if num == ('1'):
         def krutka():
-            for i in range (n):
-                time.sleep(st)
-                vk.wall.createComment(owner_id=-owner, post_id=post, message=mg)
-                i+=1
-                print('%s%s комментарий отправлен' % (green,i))
-                if i == 10:
-                    print(kaptcha)
-                    i = 1
-                    time.sleep(U_time)
-
-
+            vk_session = vk_api.VkApi(token=token)
+            vk = vk_session.get_api()
+            try :
+                for i in range (n):
+                    time.sleep(st)
+                    try:
+                        vk.wall.createComment(owner_id=owner, post_id=post, message=mg)
+                        i+=1
+                        print('%s%s комментарий отправлен' % (green,i))
+                        time.sleep(1)
+                        if i == 10:
+                            print(kaptcha)
+                            i = 1
+                            time.sleep(U_time)
+                    except vk_api.exceptions.Captcha:
+                        print('Капча')
+            except vk_api.exceptions.ApiError as error_msg:
+                print('invalid token')
         krutka()
     elif num == ('2'):
         def krutka():
-            for i in range (n):
-                time.sleep(st)
-                vk.wall.createComment(owner_id=owner, post_id=post, message=mg)
-                i+=1
-                print('%s%s комментарий отправлен' % (green,i))
-                time.sleep(1)
-                if i == 10:
-                    print(kaptcha)
-                    i = 1
-                    time.sleep(U_time)
-
-
+            vk_session = vk_api.VkApi(token=token)
+            vk = vk_session.get_api()
+            try :
+                for i in range (n):
+                    time.sleep(st)
+                    try:
+                        vk.wall.createComment(owner_id=owner, post_id=post, message=mg)
+                        i+=1
+                        print('%s%s комментарий отправлен' % (green,i))
+                        time.sleep(1)
+                        if i == 10:
+                            print(kaptcha)
+                            i = 1
+                            time.sleep(U_time)
+                    except vk_api.exceptions.Captcha:
+                        print('Капча')
+            except vk_api.exceptions.ApiError as error_msg:
+                print('invalid token')
         krutka()
 
 elif opt == '2':
@@ -133,38 +147,45 @@ elif opt == '2':
 
     vk_session = vk_api.VkApi(token=token)
     vk = vk_session.get_api()
-    api = vk
     i = 1
     al = '%d пост отправлен' % (i)
 
     if num == ('1'):
         def spam():
-            for i in range(n):
-                time.sleep(st)
-                vk.wall.post(owner_id=-owner,from_group=0,message=mg)
-                i += 1
-                print('%s%s пост отправлен' % (green,i))
-                if i == 10:
-                    print(kaptcha)
-                    i = 1
-                    time.sleep(U_time)
-
+            try:
+                for i in range(n):
+                    time.sleep(st)
+                    try:
+                        vk.wall.post(owner_id=-owner,from_group=0,message=mg)
+                        i += 1
+                        print('%s%s пост отправлен' % (green,i))
+                        if i == 10:
+                            print(kaptcha)
+                            i = 1
+                            time.sleep(U_time)
+                    except vk_api.exceptions.Captcha :
+                        print('Капча')
+            except vk_api.exceptions.ApiError as error_msg:
+                print('invalid token')
 
         spam()
     elif num == ('2'):
         def spam():
-            for i in range(n):
-                time.sleep(st)
-                vk.wall.post(owner_id=owner, message=mg)
-                i += 1
-                print('%s%s пост отправлен' % (green,i))
-                time.sleep(1)
-                if i >= 10:
-                    print(kaptcha)
-                    i = 1
-                    time.sleep(U_time)
-
-
+            try:
+                for i in range(n):
+                    time.sleep(st)
+                    try:
+                        vk.wall.post(owner_id=owner,from_group=0,message=mg)
+                        i += 1
+                        print('%s%s пост отправлен' % (green,i))
+                        if i == 10:
+                            print(kaptcha)
+                            i = 1
+                            time.sleep(U_time)
+                    except vk_api.exceptions.Captcha :
+                        print('Капча')
+            except vk_api.exceptions.ApiError as error_msg:
+                print('invalid token')
         spam()
 
 elif opt == '3':
@@ -172,10 +193,17 @@ elif opt == '3':
     l = str(input('[1]-add token(profile)\n[2]-add message\n[3]-start\n[-->]'))
     if l == '1':
         tk = str(input('token :'))
+        vk_session = vk_api.VkApi(token=token)#запрос авторизации
+        vk = vk_session.get_api()#проверка
+        try:
 
-        token = open ('token.txt','a+')
-        token.white(str(tk)+'\n')
-        token.close()
+            token = open ('token.txt','a+')
+            token.white(str(tk)+'\n')
+            token.close()
+            print('Записано!')
+        
+        except vk_api.exceptions.ApiError as error_msg:#если токен инвалид
+            print(Fore.RED+'Данные недействительны')
 
     elif l == '2':
         mg = str(input('message :'))
@@ -244,3 +272,7 @@ elif opt == '4':
                 b+=1
                 continue
             b=0
+
+elif opt == '5':
+    
+    os.system('python parser.py')
