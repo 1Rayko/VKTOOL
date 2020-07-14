@@ -193,7 +193,7 @@ elif opt == '3':
     l = str(input('[1]-add token(profile)\n[2]-add message\n[3]-start\n[-->]'))
     if l == '1':
         tk = str(input('token :'))
-        vk_session = vk_api.VkApi(token=token)#запрос авторизации
+        vk_session = vk_api.VkApi(token=tk)#запрос авторизации
         vk = vk_session.get_api()#проверка
         try:
 
