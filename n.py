@@ -281,6 +281,7 @@ elif opt == '5':
     os.system('python parser.py')
 
 elif opt == '6':
+    print("спасибо за помощь Domen'у")
     lo=str(input("Логин: "))
     pa=str(input("Пароль: "))
     vk_session = vk_api.VkApi(login=lo, password=pa, app_id='2685278')
