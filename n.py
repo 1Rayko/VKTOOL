@@ -9,6 +9,8 @@ except:
     pass
 from threading import Thread
 import traceback
+
+from vk_api import VkUpload
 from vk_api.longpoll import VkLongPoll, VkEventType, VkChatEventType
 from vk_api.bot_longpoll import VkBotLongPoll, VkBotEventType, VkBotMessageEvent
 from python3_anticaptcha import ImageToTextTask
@@ -53,6 +55,7 @@ print("""
 {1}[{0}3{1}]- srakoeb2007(beta) {2}
 {1}[{0}4{1}]- мульти накрутка коментариев {2}
 {1}[{0}5{1}]- парсер пользователей из паблика + добавление их в друзья {2}
+{1}[{0}6{1}]- накрутка фото {2}
 """.format(red,yellow,reset))
 opt = str(input('\033[35m[-->]\033[39m'))
 
@@ -276,3 +279,26 @@ elif opt == '4':
 elif opt == '5':
     
     os.system('python parser.py')
+
+elif opt == '6':
+    lo=str(input("Логин: "))
+    pa=str(input("Пароль: "))
+    vk_session = vk_api.VkApi(login=lo, password=pa, app_id='2685278')
+    vk_session.auth(token_only=True)
+    longpoll = VkLongPoll(vk_session)
+    upload = VkUpload(vk_session)
+    pot=str(input('Имя файла(или путь к нему): '))
+    al=int(input('id альбома:'))
+    count = str(input("Количество фотографий(бесконечность = qq): "))
+    b = 0
+    if count == 'qq':
+        b=0
+        while 1:
+            s = upload.photo(photos=pot, album_id=al)
+            b += 1
+            print(str(b)+"\033[32m фото загружено\033[39m")
+    else:        
+        while b != int(count):
+            s = upload.photo(photos=pot, album_id=al)
+            b += 1
+            print(str(b)+"\033[32m фото загружено\033[39m")
