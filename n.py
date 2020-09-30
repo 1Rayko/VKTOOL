@@ -21,7 +21,7 @@ banner = ["""\033[34m____   ________  __. __                .__
   \     / |    |  \ |  | (  <_> |  <_> )  |__
    \___/  |____|__ \|__|  \____/ \____/|____/
                   \/                         
-                  \033[39m by @kotik06 (sudoreboot2020) && alonesain""",
+                  \033[39m by @kotik06 (sudoreboot2020) && alonesain && Domen""",
     """\033[31m _   _ _   ___              _ 
 | | | | | / / |            | |
 | | | | |/ /| |_ ___   ___ | |
@@ -29,10 +29,10 @@ banner = ["""\033[34m____   ________  __. __                .__
 \ \_/ / |\  \ || (_) | (_) | |
  \___/\_| \_/\__\___/ \___/|_|\033[39m
                               
-                              by @kotik06 (sudoreboot2020) && alonesain""",
+                              by @kotik06 (sudoreboot2020) && alonesain && Domen""",
     """\033[35m\  /|/_|_ _  _ |
  \/ |\ | (_)(_)|
-                \033[39m by @kotik06 (sudoreboot2020) && alonesain"""]
+                \033[39m by by @kotik06 (sudoreboot2020) && alonesain && Domen"""]
 red = '\033[31m'
 yellow = '\033[33m'
 reset = '\033[39m'
@@ -281,25 +281,48 @@ elif opt == '5':
     os.system('python parser.py')
 
 elif opt == '6':
-    print("спасибо за помощь Domen'у")
-    lo=str(input("Логин: "))
-    pa=str(input("Пароль: "))
-    vk_session = vk_api.VkApi(login=lo, password=pa, app_id='2685278')
-    vk_session.auth(token_only=True)
-    longpoll = VkLongPoll(vk_session)
-    upload = VkUpload(vk_session)
-    pot=str(input('Имя файла(или путь к нему): '))
-    al=int(input('id альбома:'))
-    count = str(input("Количество фотографий(бесконечность = qq): "))
-    b = 0
-    if count == 'qq':
-        b=0
-        while 1:
-            s = upload.photo(photos=pot, album_id=al)
-            b += 1
-            print(str(b)+"\033[32m фото загружено\033[39m")
-    else:        
-        while b != int(count):
-            s = upload.photo(photos=pot, album_id=al)
-            b += 1
-            print(str(b)+"\033[32m фото загружено\033[39m")
+    #print("спасибо за помощь Domen'у")
+    s=str(input('[1]-token\n[2]-login&password\n[-->] '))
+    if s =='2':
+        lo=str(input("Логин: "))
+        pa=str(input("Пароль: "))
+        vk_session = vk_api.VkApi(login=lo, password=pa, app_id='2685278')
+        vk_session.auth(token_only=True)
+        longpoll = VkLongPoll(vk_session)
+        upload = VkUpload(vk_session)
+        pot=str(input('Имя файла(или путь к нему): '))
+        al=int(input('id альбома:'))
+        count = str(input("Количество фотографий(бесконечность = qq): "))
+        b = 0
+        if count == 'qq':
+            b=0
+            while 1:
+                s = upload.photo(photos=pot, album_id=al)
+                b += 1
+                print(str(b)+"\033[32m фото загружено\033[39m")
+        else:        
+            while b != int(count):
+                s = upload.photo(photos=pot, album_id=al)
+                b += 1
+                print(str(b)+"\033[32m фото загружено\033[39m")
+    else:
+        tk=str(input("token: "))
+        vk_session = vk_api.VkApi(token=tk,app_id='2685278')
+       # vk_session.auth(token_only=True)
+        longpoll = VkLongPoll(vk_session)
+        upload = VkUpload(vk_session)
+        pot=str(input('Имя файла(или путь к нему): '))
+        al=int(input('id альбома:'))
+        count = str(input("Количество фотографий(бесконечность = qq): "))
+        b = 0
+        if count == 'qq':
+            b=0
+            while 1:
+                s = upload.photo(photos=pot, album_id=al)
+                b += 1
+                print(str(b)+"\033[32m фото загружено\033[39m")
+        else:        
+            while b != int(count):
+                s = upload.photo(photos=pot, album_id=al)
+                b += 1
+                print(str(b)+"\033[32m фото загружено\033[39m")
