@@ -32,7 +32,7 @@ banner = ["""\033[34m____   ________  __. __                .__
                               by @kotik06 (sudoreboot2020) && alonesain && Domen""",
     """\033[35m\  /|/_|_ _  _ |
  \/ |\ | (_)(_)|
-                \033[39m by by @kotik06 (sudoreboot2020) && alonesain && Domen"""]
+                \033[39m by @kotik06 (sudoreboot2020) && alonesain && Domen"""]
 red = '\033[31m'
 yellow = '\033[33m'
 reset = '\033[39m'
