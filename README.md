@@ -15,6 +15,8 @@
   pip3 install vk
   
   pip3 install colorama
+  
+  pip3 install Pillow
 
   pip3 install python3_anticaptcha
 
@@ -32,6 +34,8 @@
   pip3 install vk
   
   pip3 install colorama
+
+  pip install Pillow
 
   pip3 install python3_anticaptcha
 
