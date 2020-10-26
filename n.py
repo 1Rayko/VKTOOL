@@ -15,6 +15,7 @@ from vk_api.longpoll import VkLongPoll, VkEventType, VkChatEventType
 from vk_api.bot_longpoll import VkBotLongPoll, VkBotEventType, VkBotMessageEvent
 from python3_anticaptcha import ImageToTextTask
 from python3_anticaptcha import errors
+from PIL import Image, ImageDraw, ImageFont
 banner = ["""\033[34m____   ________  __. __                .__   
 \   \ /   /    |/ _|/  |_  ____   ____ |  |  
  \   Y   /|      < \   __\/  _ \ /  _ \|  |  
@@ -32,7 +33,7 @@ banner = ["""\033[34m____   ________  __. __                .__
                               by @kotik06 (sudoreboot2020) && alonesain && Domen""",
     """\033[35m\  /|/_|_ _  _ |
  \/ |\ | (_)(_)|
-                \033[39m by @kotik06 (sudoreboot2020) && alonesain && Domen"""]
+                \033[39m by by @kotik06 (sudoreboot2020) && alonesain && Domen"""]
 red = '\033[31m'
 yellow = '\033[33m'
 reset = '\033[39m'
@@ -47,6 +48,9 @@ green = '\033[32m'
 #ESC [ 36 m      # cyan
 #ESC [ 37 m      # white
 #ESC [ 39 m      # reset
+
+ 
+    #image.show()
 os.system('clear')
 print(random.choice(banner))
 print("""
@@ -282,47 +286,154 @@ elif opt == '5':
 
 elif opt == '6':
     #print("спасибо за помощь Domen'у")
-    s=str(input('[1]-token\n[2]-login&password\n[-->] '))
-    if s =='2':
-        lo=str(input("Логин: "))
-        pa=str(input("Пароль: "))
-        vk_session = vk_api.VkApi(login=lo, password=pa, app_id='2685278')
-        vk_session.auth(token_only=True)
-        longpoll = VkLongPoll(vk_session)
-        upload = VkUpload(vk_session)
-        pot=str(input('Имя файла(или путь к нему): '))
-        al=int(input('id альбома:'))
-        count = str(input("Количество фотографий(бесконечность = qq): "))
-        b = 0
-        if count == 'qq':
-            b=0
-            while 1:
-                s = upload.photo(photos=pot, album_id=al)
-                b += 1
-                print(str(b)+"\033[32m фото загружено\033[39m")
-        else:        
-            while b != int(count):
-                s = upload.photo(photos=pot, album_id=al)
-                b += 1
-                print(str(b)+"\033[32m фото загружено\033[39m")
+    j=str(input('[1]-накрутка своих фото\n[2]-накрутка манулов :D\n[-->]'))
+    if j =='1':
+        s=str(input('[1]-token\n[2]-login&password\n[-->] '))
+        b=0
+        if s =='2':
+            lo=str(input("Логин: "))
+            pa=str(input("Пароль: "))
+            vk_session = vk_api.VkApi(login=lo, password=pa, app_id='2685278')
+            vk_session.auth(token_only=True)
+            longpoll = VkLongPoll(vk_session)
+            upload = VkUpload(vk_session)
+            pot=str(input('Имя файла(или путь к нему): '))
+            al=int(input('id альбома:'))
+            count = str(input("Количество фотографий(бесконечность = qq): "))
+            b = 0
+            if count == 'qq':
+                b=0
+                while 1:
+                    s = upload.photo(photos=pot, album_id=al)
+                    b += 1
+                    print(str(b)+"\033[32m фото загружено\033[39m")
+            else:        
+                while b != int(count):
+                    s = upload.photo(photos=pot, album_id=al)
+                    b += 1
+                    print(str(b)+"\033[32m фото загружено\033[39m")
+        else:
+            tk=str(input("token: "))
+            vk_session = vk_api.VkApi(token=tk,app_id='2685278')
+           # vk_session.auth(token_only=True)
+            longpoll = VkLongPoll(vk_session)
+            upload = VkUpload(vk_session)
+            pot=str(input('Имя файла(или путь к нему): '))
+            al=int(input('id альбома:'))
+            count = str(input("Количество фотографий(бесконечность = qq): "))
+            b = 0
+            if count == 'qq':
+                b=0
+                while 1:
+                    s = upload.photo(photos=pot, album_id=al)
+                    b += 1
+                    print(str(b)+"\033[32m фото загружено\033[39m")
+            else:        
+                while b != int(count):
+                    s = upload.photo(photos=pot, album_id=al)
+                    b += 1
+                    print(str(b)+"\033[32m фото загружено\033[39m")
     else:
-        tk=str(input("token: "))
-        vk_session = vk_api.VkApi(token=tk,app_id='2685278')
-       # vk_session.auth(token_only=True)
-        longpoll = VkLongPoll(vk_session)
-        upload = VkUpload(vk_session)
-        pot=str(input('Имя файла(или путь к нему): '))
-        al=int(input('id альбома:'))
-        count = str(input("Количество фотографий(бесконечность = qq): "))
-        b = 0
-        if count == 'qq':
+        s=str(input('[1]-token\n[2]-login&password\n[-->] '))
+        if s =='2':
+            lo=str(input("Логин: "))
+            pa=str(input("Пароль: "))
+            vk_session = vk_api.VkApi(login=lo, password=pa, app_id='2685278')
+            vk_session.auth(token_only=True)
+            longpoll = VkLongPoll(vk_session)
+            upload = VkUpload(vk_session)
+            #pot=str(input('Имя файла(или путь к нему): '))
+            al=int(input('id альбома:'))
+            count = str(input("Количество фотографий(бесконечность = qq): "))
             b=0
-            while 1:
-                s = upload.photo(photos=pot, album_id=al)
-                b += 1
-                print(str(b)+"\033[32m фото загружено\033[39m")
-        else:        
-            while b != int(count):
-                s = upload.photo(photos=pot, album_id=al)
-                b += 1
-                print(str(b)+"\033[32m фото загружено\033[39m")
+            if count == 'qq':
+                b=0
+                while 1:
+
+                    image = Image.open("manul.jpg")
+
+                    font = ImageFont.truetype("arial.ttf", 25)
+                    drawer = ImageDraw.Draw(image)
+                    drawer.text((150, 100), f"{b} манулов", font=font, fill='black')
+
+                    image.save(f'manul{b}.jpg')
+                    time.sleep(1)
+                    try:
+                        s = upload.photo(photos=f'manul{b}.jpg', album_id=al)
+                    
+                        os.remove(f'manul{b}.jpg')
+                        b += 1
+                        print(str(b)+"\033[32m фото загружено\033[39m")
+                    except:
+                        time.sleep(10)
+            else:        
+                while b != int(count):
+                    image = Image.open("manul.jpg")
+
+                    font = ImageFont.truetype("arial.ttf", 25)
+                    drawer = ImageDraw.Draw(image)
+                    drawer.text((150, 100), f"{b} манулов", font=font, fill='black')
+
+                    image.save(f'manul{b}.jpg')
+                    time.sleep(1)
+                    try:
+                        s = upload.photo(photos=f'manul{b}.jpg', album_id=al)
+                    
+                        os.remove(f'manul{b}.jpg')
+                        b += 1
+                        print(str(b)+"\033[32m фото загружено\033[39m")
+                    except:
+                        time.sleep(10)
+        else:
+            tk=str(input("token: "))
+            vk_session = vk_api.VkApi(token=tk,app_id='2685278')
+           # vk_session.auth(token_only=True)
+            longpoll = VkLongPoll(vk_session)
+            upload = VkUpload(vk_session)
+            count = str(input("Количество фотографий(бесконечность = qq): "))
+            #image = Image.open("manul.jpg")
+
+            #font = ImageFont.truetype("arial.ttf", 25)
+            #drawer = ImageDraw.Draw(image)
+            #drawer.text((50, 100), f"{b} манулов", font=font, fill='black')
+
+            #image.save(f'manul{i}.jpg')\
+            b=0
+            if count == 'qq':
+                b=0
+                while 1:
+
+                    image = Image.open("manul.jpg")
+
+                    font = ImageFont.truetype("arial.ttf", 25)
+                    drawer = ImageDraw.Draw(image)
+                    drawer.text((150, 100), f"{b} манулов", font=font, fill='black')
+                    image.save(f'manul{b}.jpg')
+                    time.sleep(1)
+                    try:
+                        s = upload.photo(photos=f'manul{b}.jpg', album_id=al)
+                    
+                        os.remove(f'manul{b}.jpg')
+                        b += 1
+                        print(str(b)+"\033[32m фото загружено\033[39m")
+                    except:
+                        time.sleep(10)
+            else:        
+                while b != int(count):
+                    image = Image.open("manul.jpg")
+
+                    font = ImageFont.truetype("arial.ttf", 25)
+                    drawer = ImageDraw.Draw(image)
+                    drawer.text((150, 100), f"{b} манулов", font=font, fill='black')
+
+                    image.save(f'manul{b}.jpg')
+                    time.sleep(1)
+                    try:
+                        s = upload.photo(photos=f'manul{b}.jpg', album_id=al)
+                    
+                        os.remove(f'manul{b}.jpg')
+                        b += 1
+                        print(str(b)+"\033[32m фото загружено\033[39m")
+                    except:
+                        time.sleep(10)
+                    print(str(b)+"\033[32m фото загружено\033[39m")
