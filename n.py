@@ -390,6 +390,7 @@ elif opt == '6':
            # vk_session.auth(token_only=True)
             longpoll = VkLongPoll(vk_session)
             upload = VkUpload(vk_session)
+            al=int(input('id альбома:'))
             count = str(input("Количество фотографий(бесконечность = qq): "))
             #image = Image.open("manul.jpg")
 
