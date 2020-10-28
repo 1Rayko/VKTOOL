@@ -357,7 +357,7 @@ elif opt == '6':
                     drawer = ImageDraw.Draw(image)
                     drawer.text((150, 100), f"{b} манулов", font=font, fill='black')
                     image.save(f'manul{b}.jpg')
-                    time.sleep(1)
+                    #time.sleep(1)
                     try:
                         s = upload.photo(photos=f'manul{b}.jpg', album_id=al)
                     
@@ -376,7 +376,7 @@ elif opt == '6':
                     drawer.text((150, 100), f"{b} манулов", font=font, fill='black')
 
                     image.save(f'manul{b}.jpg')
-                    time.sleep(1)
+                    #time.sleep(1)
                     try:
                         s = upload.photo(photos=f'manul{b}.jpg', album_id=al)
                     
@@ -408,7 +408,7 @@ elif opt == '6':
                     drawer = ImageDraw.Draw(image)
                     drawer.text((150, 100), f"{b} манулов", font=font, fill='black')
                     image.save(f'manul{b}.jpg')
-                    time.sleep(1)
+                    #time.sleep(1)
                     try:
                         s = upload.photo(photos=f'manul{b}.jpg', album_id=al)
                     
@@ -427,7 +427,7 @@ elif opt == '6':
                     drawer.text((150, 100), f"{b} манулов", font=font, fill='black')
 
                     image.save(f'manul{b}.jpg')
-                    time.sleep(1)
+                    #time.sleep(1)
                     try:
                         s = upload.photo(photos=f'manul{b}.jpg', album_id=al)
                     
