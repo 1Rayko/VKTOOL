@@ -342,12 +342,13 @@ elif opt == '6':
             vk_session.auth(token_only=True)
             longpoll = VkLongPoll(vk_session)
             upload = VkUpload(vk_session)
-            #pot=str(input('Имя файла(или путь к нему): '))
             al=int(input('id альбома:'))
             count = str(input("Количество фотографий(бесконечность = qq): "))
-            b=0
+            start=int(input('Со скольки начать счет манулов :'))
+            j=0
+            b=start
             if count == 'qq':
-                b=0
+            
                 while 1:
 
                     image = Image.open("manul.jpg")
@@ -355,7 +356,6 @@ elif opt == '6':
                     font = ImageFont.truetype("arial.ttf", 25)
                     drawer = ImageDraw.Draw(image)
                     drawer.text((150, 100), f"{b} манулов", font=font, fill='black')
-
                     image.save(f'manul{b}.jpg')
                     time.sleep(1)
                     try:
@@ -363,11 +363,12 @@ elif opt == '6':
                     
                         os.remove(f'manul{b}.jpg')
                         b += 1
-                        print(str(b)+"\033[32m фото загружено\033[39m")
+                        j+=1
+                        print(str(j)+"\033[32m фото загружено\033[39m")
                     except:
                         time.sleep(10)
             else:        
-                while b != int(count):
+                while j != int(count):
                     image = Image.open("manul.jpg")
 
                     font = ImageFont.truetype("arial.ttf", 25)
@@ -380,10 +381,12 @@ elif opt == '6':
                         s = upload.photo(photos=f'manul{b}.jpg', album_id=al)
                     
                         os.remove(f'manul{b}.jpg')
-                        b += 1
-                        print(str(b)+"\033[32m фото загружено\033[39m")
+                        j += 1
+                        b+=1
+                        print(str(j)+"\033[32m фото загружено\033[39m")
                     except:
                         time.sleep(10)
+
         else:
             tk=str(input("token: "))
             vk_session = vk_api.VkApi(token=tk,app_id='2685278')
@@ -392,16 +395,11 @@ elif opt == '6':
             upload = VkUpload(vk_session)
             al=int(input('id альбома:'))
             count = str(input("Количество фотографий(бесконечность = qq): "))
-            #image = Image.open("manul.jpg")
-
-            #font = ImageFont.truetype("arial.ttf", 25)
-            #drawer = ImageDraw.Draw(image)
-            #drawer.text((50, 100), f"{b} манулов", font=font, fill='black')
-
-            #image.save(f'manul{i}.jpg')\
-            b=0
+            start=int(input('Со скольки начать счет манулов :'))
+            j=0
+            b=start
             if count == 'qq':
-                b=0
+            
                 while 1:
 
                     image = Image.open("manul.jpg")
@@ -416,11 +414,12 @@ elif opt == '6':
                     
                         os.remove(f'manul{b}.jpg')
                         b += 1
-                        print(str(b)+"\033[32m фото загружено\033[39m")
+                        j+=1
+                        print(str(j)+"\033[32m фото загружено\033[39m")
                     except:
                         time.sleep(10)
             else:        
-                while b != int(count):
+                while j != int(count):
                     image = Image.open("manul.jpg")
 
                     font = ImageFont.truetype("arial.ttf", 25)
@@ -433,8 +432,9 @@ elif opt == '6':
                         s = upload.photo(photos=f'manul{b}.jpg', album_id=al)
                     
                         os.remove(f'manul{b}.jpg')
-                        b += 1
-                        print(str(b)+"\033[32m фото загружено\033[39m")
+                        j += 1
+                        b+=1
+                        print(str(j)+"\033[32m фото загружено\033[39m")
                     except:
                         time.sleep(10)
-                    print(str(b)+"\033[32m фото загружено\033[39m")
+                    #print(str(j)+"\033[32m фото загружено\033[39m")
