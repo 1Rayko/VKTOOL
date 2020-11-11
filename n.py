@@ -9,7 +9,7 @@ except:
     pass
 from threading import Thread
 import traceback
-
+import parser
 from vk_api import VkUpload
 from vk_api.longpoll import VkLongPoll, VkEventType, VkChatEventType
 from vk_api.bot_longpoll import VkBotLongPoll, VkBotEventType, VkBotMessageEvent
@@ -281,8 +281,8 @@ elif opt == '4':
             b=0
 
 elif opt == '5':
-    
-    os.system('python parser.py')
+    parser.main()
+    #os.system('python parser.py')
 
 elif opt == '6':
     #print("спасибо за помощь Domen'у")
