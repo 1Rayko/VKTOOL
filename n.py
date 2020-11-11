@@ -9,7 +9,7 @@ except:
     pass
 from threading import Thread
 import traceback
-import parser
+
 from vk_api import VkUpload
 from vk_api.longpoll import VkLongPoll, VkEventType, VkChatEventType
 from vk_api.bot_longpoll import VkBotLongPoll, VkBotEventType, VkBotMessageEvent
@@ -281,8 +281,8 @@ elif opt == '4':
             b=0
 
 elif opt == '5':
-    parser.main()
-    #os.system('python parser.py')
+    
+    os.system('python parser.py')
 
 elif opt == '6':
     #print("спасибо за помощь Domen'у")
@@ -357,7 +357,7 @@ elif opt == '6':
                     drawer = ImageDraw.Draw(image)
                     drawer.text((150, 100), f"{b} манулов", font=font, fill='black')
                     image.save(f'manul{b}.jpg')
-                    #time.sleep(1)
+                    time.sleep(1)
                     try:
                         s = upload.photo(photos=f'manul{b}.jpg', album_id=al)
                     
@@ -376,7 +376,7 @@ elif opt == '6':
                     drawer.text((150, 100), f"{b} манулов", font=font, fill='black')
 
                     image.save(f'manul{b}.jpg')
-                    #time.sleep(1)
+                    time.sleep(1)
                     try:
                         s = upload.photo(photos=f'manul{b}.jpg', album_id=al)
                     
@@ -408,7 +408,7 @@ elif opt == '6':
                     drawer = ImageDraw.Draw(image)
                     drawer.text((150, 100), f"{b} манулов", font=font, fill='black')
                     image.save(f'manul{b}.jpg')
-                    #time.sleep(1)
+                    time.sleep(1)
                     try:
                         s = upload.photo(photos=f'manul{b}.jpg', album_id=al)
                     
@@ -427,7 +427,7 @@ elif opt == '6':
                     drawer.text((150, 100), f"{b} манулов", font=font, fill='black')
 
                     image.save(f'manul{b}.jpg')
-                    #time.sleep(1)
+                    time.sleep(1)
                     try:
                         s = upload.photo(photos=f'manul{b}.jpg', album_id=al)
                     
