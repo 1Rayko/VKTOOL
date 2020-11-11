@@ -75,5 +75,5 @@ def main():#функция main хз зачем но я так люблю дел
 	elif o == '2':
 		tk = str(input('ТОКЕН:'))
 		nakrutka(tk)
-if __name__ == "__main__":
+if __name__ == '__main__':#знаешь уже что это
 	main()#вызов main
