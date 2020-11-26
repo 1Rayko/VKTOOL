@@ -437,8 +437,8 @@ elif opt == '7':
         url = str(input("Ссылка на фото: "))
 
         img = urllib.request.urlopen(url).read()
-        out = open("img.png", "wb")
+        out = open("img.jpg", "wb")
         out.write(img)
         out.close
-        print("Фото сохранено как img.png")
+        print("Фото сохранено как img.jpg")
     s()
