@@ -572,7 +572,7 @@ elif opt =='8':
         os.remove('bots.txt')
         os.system('touch bots.txt')
     elif pososo == "4":
-        targets = list(input("Введите id людей, которым начать накрутку через пробел(Важно, чтобы все эти пользователи были в друзьях у ботов):").split())
+        targets = list(input("Введите id людей, которым начать накрутку, через пробел(Важно, чтобы все эти пользователи были в друзьях у ботов):").split())
         file = open("bots.txt", "r",encoding='utf-8')#сука файл
         apikey = file.readlines()
         token = [line.rstrip() for line in apikey]
