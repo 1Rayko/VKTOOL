@@ -22,7 +22,7 @@ banner = ["""\033[34m____   ________  __. __                .__
   \     / |    |  \ |  | (  <_> |  <_> )  |__
    \___/  |____|__ \|__|  \____/ \____/|____/
                   \/                         
-                  \033[39m by @kotik06 (sudoreboot2020) && alonesain && Domen""",
+\033[39m by @kotik06 (sudoreboot2020) && alonesain && Domen && Huukir""",
     """\033[31m _   _ _   ___              _ 
 | | | | | / / |            | |
 | | | | |/ /| |_ ___   ___ | |
@@ -30,10 +30,10 @@ banner = ["""\033[34m____   ________  __. __                .__
 \ \_/ / |\  \ || (_) | (_) | |
  \___/\_| \_/\__\___/ \___/|_|\033[39m
                               
-                              by @kotik06 (sudoreboot2020) && alonesain && Domen""",
+    by @kotik06 (sudoreboot2020) && alonesain && Domen && Huukir""",
     """\033[35m\  /|/_|_ _  _ |
  \/ |\ | (_)(_)|
-                \033[39m by @kotik06 (sudoreboot2020) && alonesain && Domen"""]
+\033[39m by @kotik06 (sudoreboot2020) && alonesain && Domen && Huukir"""]
 red = '\033[31m'
 yellow = '\033[33m'
 reset = '\033[39m'
@@ -61,6 +61,7 @@ print("""
 {1}[{0}5{1}]- парсер пользователей из паблика + добавление их в друзья {2}
 {1}[{0}6{1}]- накрутка фото {2}
 {1}[{0}7{1}]- скачивание фото {2}
+{1}[{0}8{1}]- накрутка сообщений {2}
 """.format(red,yellow,reset))
 opt = str(input('\033[35m[-->]\033[39m'))
 
@@ -551,3 +552,46 @@ elif opt == '7':
         out.close
         print("Фото сохранено как img.jpg")
     s()
+
+elif opt =='8':
+    #targets=map(str, input("Введите id людей, которым начать накрутку через пробел(Важно, чтобы все эти пользователи были в друзьях у ботов):").split())
+    print('[1]-добавть ботов в файл bots.txt\n[2]-прочитать токены\n[3]-очистить файл с токенами\n[4]-запустить накрутку\n')
+    pososo= str(input("[->>]"))
+    
+   
+    if pososo == "1":
+        file = open("bots.txt", "a+",encoding='utf-8')
+        t=input("Введите токен:")
+        file.write(f"{t}\n")
+        file.close()
+    elif pososo == "2":
+        file = open("bots.txt", "r",encoding='utf-8')
+        print(file.read())
+        file.close()
+    elif pososo == "3":
+        os.remove('bots.txt')
+        os.system('touch bots.txt')
+    elif pososo == "4":
+        targets = list(input("Введите id людей, которым начать накрутку через пробел(Важно, чтобы все эти пользователи были в друзьях у ботов):").split())
+        file = open("bots.txt", "r",encoding='utf-8')#сука файл
+        apikey = file.readlines()
+        token = [line.rstrip() for line in apikey]
+        b = 0
+        print(str(len(token))+' токена(ов)')
+        while 1:
+            while b<len(token) :
+
+                #print(token[b])
+                vk_session = vk_api.VkApi(token=token[b])
+                
+                vk = vk_session.get_api()
+                try:
+                    vk.messages.createChat(user_ids=targets,title="накрутка by sudoreboot")
+                    print("{0}Беседа создана с аккаунта{1}".format(green,reset),vk.account.getProfileInfo()["first_name"],vk.account.getProfileInfo()["last_name"])
+                except Exception as e:
+                    print("{0}error{1}".format(red,reset),e,vk.account.getProfileInfo()["first_name"],vk.account.getProfileInfo()["last_name"])
+                
+                b+=1
+                continue
+            time.sleep(20)
+            b=0
