@@ -583,14 +583,15 @@ elif opt =='8':
 
                 #print(token[b])
                 vk_session = vk_api.VkApi(token=token[b])
-                
-                vk = vk_session.get_api()
                 try:
-                    vk.messages.createChat(user_ids=targets,title="накрутка by sudoreboot")
-                    print("{0}Беседа создана с аккаунта{1}".format(green,reset),vk.account.getProfileInfo()["first_name"],vk.account.getProfileInfo()["last_name"])
+                    vk = vk_session.get_api()
+                    try:
+                        vk.messages.createChat(user_ids=targets,title="накрутка by sudoreboot")
+                        print("{0}Беседа создана с аккаунта{1}".format(green,reset),vk.account.getProfileInfo()["first_name"],vk.account.getProfileInfo()["last_name"])
+                    except Exception as e:
+                        print("{0}error{1}".format(red,reset),e,vk.account.getProfileInfo()["first_name"],vk.account.getProfileInfo()["last_name"])
                 except Exception as e:
-                    print("{0}error{1}".format(red,reset),e,vk.account.getProfileInfo()["first_name"],vk.account.getProfileInfo()["last_name"])
-                
+                    print("{0}error{1}".format(red,reset),e)
                 b+=1
                 continue
             time.sleep(20)
