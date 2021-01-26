@@ -62,6 +62,7 @@ print("""
 {1}[{0}6{1}]- накрутка фото {2}
 {1}[{0}7{1}]- скачивание фото {2}
 {1}[{0}8{1}]- накрутка сообщений {2}
+{1}[{0}9{1}]- отправка заявок в друзья {2}
 """.format(red,yellow,reset))
 opt = str(input('\033[35m[-->]\033[39m'))
 
@@ -596,3 +597,24 @@ elif opt =='8':
                 continue
             time.sleep(20)
             b=0
+
+elif opt == '9':
+    u=int(input('id пользователя: '))
+    file = open("bots.txt", "r",encoding='utf-8')#сука файл
+    apikey = file.readlines()
+    token = [line.rstrip() for line in apikey]
+    b = 0
+    print(str(len(token))+' токена(ов)')
+    
+    while b<len(token) :
+
+                #print(token[b])
+        vk_session = vk_api.VkApi(token=token[b])
+        try:
+            vk = vk_session.get_api()
+            vk.friends.add(user_id=u,text="прими бота")
+            print("{0}Заявка отправлена с аккаунта{1}".format(green,reset),vk.account.getProfileInfo()["first_name"],vk.account.getProfileInfo()["last_name"])
+            b+=1
+        except Exception as e:
+            print("{0}error{1}".format(red,reset),e)
+            b+=1
