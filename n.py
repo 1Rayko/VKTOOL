@@ -10,6 +10,7 @@ except:
 from threading import Thread
 import traceback
 import urllib.request
+import threading
 from vk_api import VkUpload
 from vk_api.longpoll import VkLongPoll, VkEventType, VkChatEventType
 from vk_api.bot_longpoll import VkBotLongPoll, VkBotEventType, VkBotMessageEvent
@@ -282,7 +283,7 @@ elif opt == '5':
 
 elif opt == '6':
     #print("спасибо за помощь Domen'у")
-    j=str(input('[1]-накрутка своих фото\n[2]-накрутка манулов :D\n[3]-накрутка своих фото с счетчиком\n[-->]'))
+    j=str(input('[1]-накрутка своих фото\n[2]-накрутка манулов :D\n[3]-накрутка своих фото с счетчиком\n[4]-накрутка с потоками\n[-->]'))
     if j =='1':
         s=str(input('[1]-token\n[2]-login&password\n[-->] '))
         b=0
@@ -543,6 +544,30 @@ elif opt == '6':
                     except:
                         time.sleep(10)
                     #print(str(j)+"\033[32m фото загружено\033[39m")        
+    elif j =="4":
+        b = int(input("Количество потоков:"))
+        def a(tk,ph,al):
+            
+            vk_session = vk_api.VkApi(token=tk,app_id='2685278')
+             # vk_session.auth(token_only=True)
+            longpoll = VkLongPoll(vk_session)
+            upload = VkUpload(vk_session)
+
+            b = 0
+
+            while 1:
+                try:
+                    s = upload.photo(photos=ph, album_id=al)
+                    print(str(b)+"фото загружено")
+                except Exception as e:
+                    print(e)
+        tk=str(input('Токен: '))
+        ph=str(input('Путь к фото: '))
+        al=int(input('id альбома:'))
+        for i in range(b):
+            t = threading.Thread(target=a, args=(tk,ph,al))
+            t.start()
+
 elif opt == '7':
     def s():
         url = str(input("Ссылка на фото: "))
