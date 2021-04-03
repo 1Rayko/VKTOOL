@@ -558,7 +558,7 @@ elif opt == '6':
             while 1:
                 try:
                     s = upload.photo(photos=ph, album_id=al)
-                    print(str(b)+"фото загружено")
+                    print(str(b)+" фото загружено")
                     b+=1
                 except Exception as e:
                     print(e)
