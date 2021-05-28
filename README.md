@@ -1,49 +1,46 @@
 # VKTOOL
 
-# УСТАНОВКА:
+## УСТАНОВКА:
 
-  # Termux
-  
-  pkg install git -y
-  
-  pkg install python3 
-  
-  git clone https://github.com/kotik06/VKTOOL
-  
-  pip3 install vk_api
-  
-  pip3 install vk
-  
-  pip3 install colorama
-  
-  pip3 install Pillow
+### Termux
 
-  pip3 install python3_anticaptcha
+```bash
+# Устанавливаем системные зависимости
+pkg install git python3 -y
 
+# Скачиваем репозиторий
+git clone https://github.com/kotik06/VKTOOL
 
-  # Linux
-  
-  apt install git -y
-  
-  apt install python3 
-  
-  git clone https://github.com/kotik06/VKTOOL
-  
-  pip3 install vk_api
-  
-  pip3 install vk
-  
-  pip3 install colorama
+# Установка питонячих библиотек
+pip3 install vk_api vk colorama Pillow python3_anticaptcha
+```
 
-  pip install Pillow
+### Linux
 
-  pip3 install python3_anticaptcha
+```bash
+# Устанавливаем системные зависимости
+sudo apt install git python3 -y
 
-# Запуск
+# Скачиваем репозиторий
+git clone https://github.com/kotik06/VKTOOL
 
-cd VKTOOL && python3 n.py
+# Установка питонячих библиотек
+pip3 install vk_api vk colorama Pillow python3_anticaptcha
+```
+## Запуск
+```bash
+# Заходим в папку
+cd VKTOOL
 
-# Обновления
- cd VKTOOL && git pull 
+# Запускаем файл питоном
+python3 n.py
+```
+## Обновления
+```bash
+# Заходим в папку
+cd VKTOOL
 
-# !srakoeb2007 is beta! 
+# Вытаскиваем последнюю версию с гита
+git pull 
+```
+# Внимание: !`srakoeb2007` is beta! 
