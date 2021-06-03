@@ -64,6 +64,7 @@ print("""
 {1}[{0}7{1}]- скачивание фото {2}
 {1}[{0}8{1}]- накрутка сообщений {2}
 {1}[{0}9{1}]- отправка заявок в друзья {2}
+{1}[{0}10{1}]- 1000-7 статус {2}
 """.format(red,yellow,reset))
 opt = str(input('\033[35m[-->]\033[39m'))
 
@@ -644,3 +645,45 @@ elif opt == '9':
         except Exception as e:
             print("{0}error{1}".format(red,reset),e)
             b+=1
+
+elif opt == '10':
+
+    plaseholder = str(input("[1]-token\n[2]-login+password\n[-->]"))
+    if plaseholder == '1':
+        token=str(input("Введите токен:"))
+        vk_session = vk_api.VkApi(token=token)
+        try:
+            vk = vk_session.get_api()
+            vk.account.saveProfileInfo(status='1000-7=?')
+            i=1000
+            while 1:
+                vk.account.saveProfileInfo(status=f'{i}-7={i-7}')
+                if i < 0:
+                    i=1000
+                else:
+                    i-=7
+                print("zxc")
+                time.sleep(1)
+        except Exception as e:
+            print("{0}error{1}".format(red,reset),e)
+
+    else:
+        lo=str(input("Введите логин:"))
+        pa= str(input("Введите пароль:"))
+        vk_session = vk_api.VkApi(login=lo, password=pa, app_id='2685278')
+        #vk_session.auth(token_only=True)
+        try:
+            vk = vk_session.get_api()
+            vk.account.saveProfileInfo(status='1000-7=?')
+
+            i=1000
+            while 1:
+                vk.account.saveProfileInfo(status=f'{i}-7={i-7}')
+                if i < 0:
+                    i=1000
+                else:
+                    i-=7
+                print("zxc")
+                time.sleep(1)
+        except Exception as e:
+            print("{0}error{1}".format(red,reset),e)
