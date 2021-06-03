@@ -40,9 +40,9 @@ git clone https://github.com/kotik06/VKTOOL
 
 # Установка питонячих библиотек
 pip install vk_api vk colorama Pillow python3_anticaptcha
-
+```
 ## Запуск
-
+```bash
 # Заходим в папку
 cd VKTOOL
 
