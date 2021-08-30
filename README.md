@@ -46,8 +46,11 @@ pip install vk_api vk colorama Pillow python3_anticaptcha
 # Заходим в папку
 cd VKTOOL
 
-# Запускаем файл питоном
-python n.py
+# Запускаем обычную версию
+python n.py 
+
+# Запускаем лайт версию для накрутки фото
+python light.py
 ```
 
 ## Обновления
