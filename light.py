@@ -14,7 +14,7 @@ def x(a,b,upload,path):
             
             if j != len(b):
                 try:
-                    s = upload.photo(photos=f'/home/q/wp/1.jpg', album_id=b[j])
+                    s = upload.photo(photos=path, album_id=b[j])
                     print(f'\033[32mфото {i+1} загружено в альбом {b[j]}\033[39m')
                     i+=1
                     j+=1
