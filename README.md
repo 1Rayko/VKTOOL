@@ -15,7 +15,7 @@ git clone https://github.com/kotik06/VKTOOL
 pip3 install vk_api vk colorama Pillow python3_anticaptcha
 ```
 
-### Linux
+### Ubuntu/Debian
 
 ```bash
 # Устанавливаем системные зависимости
