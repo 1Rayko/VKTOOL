@@ -3,7 +3,11 @@ import os
 try:
     import click
 except:
-    os.system("pip install click")    
+    print("module click not installed")
+    print("-------------------------")
+    os.system("pip install click") 
+    print("click installed\nrestart vktool-cli")
+       
 
 
 @click.command(help="run full version")
