@@ -12,26 +12,26 @@
 ## Termux
 
 ```zsh
-# Устанавливаем системные зависимости
 pkg install git python3 python3-pip -y
 ```
-## Ubuntu/Debian
 
+## Ubuntu/Debian
 ```zsh
 sudo apt install git python3 python3-pip -y
 ```
 
 ## Arch Linux
-
 ```zsh
 sudo pacman -Sy git 
 sudo pacman -Sy python
 sudo pacman -Sy python-pip
 ```
+
 ### Клонируем репозиторий
 ```zsh
 git clone https://github.com/kotik06/VKTOOL
 ```
+
 ### Установка питонячих библиотек + добавление алиаса в .bashrc, .zshrc
 ```zsh
 cd VKTOOL && python main.py install
