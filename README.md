@@ -12,7 +12,7 @@
 
 ```bash
 # Устанавливаем системные зависимости
-pkg install git python3 -y
+pkg install git python3 python3-pip -y
 
 # Скачиваем репозиторий
 git clone https://github.com/kotik06/VKTOOL
@@ -24,7 +24,7 @@ cd VKTOOL && python main.py install
 
 ```bash
 # Устанавливаем системные зависимости
-sudo apt install git python3 -y
+sudo apt install git python3 python3-pip -y
 
 # Скачиваем репозиторий
 git clone https://github.com/kotik06/VKTOOL
