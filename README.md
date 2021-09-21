@@ -57,4 +57,4 @@ vktool-cli light
 ```bash
 vktool-cli update
 ```
-# Внимание: !`srakoeb2007` is beta! 
+# Внимание: ![srakoeb2007](srakoeb2007.py) в бете! 
