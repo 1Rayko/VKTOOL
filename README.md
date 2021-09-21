@@ -10,7 +10,7 @@
 
 ### Termux
 
-```bash
+```zsh
 # Устанавливаем системные зависимости
 pkg install git python3 python3-pip -y
 
@@ -22,7 +22,7 @@ cd VKTOOL && python main.py install
 
 ### Ubuntu/Debian
 
-```bash
+```zsh
 # Устанавливаем системные зависимости
 sudo apt install git python3 python3-pip -y
 
@@ -32,7 +32,7 @@ git clone https://github.com/kotik06/VKTOOL
 
 ### Arch Linux
 
-```bash
+```zsh
 # Устанавливаем системные зависимости
 sudo pacman -Sy git 
 sudo pacman -Sy python
@@ -45,7 +45,7 @@ git clone https://github.com/kotik06/VKTOOL
 cd VKTOOL && python main.py install
 ``` 
 ## Запуск
-```bash
+```zsh
 #Запуск обычноый версии
 vktool-cli full 
 
@@ -54,7 +54,7 @@ vktool-cli light
 ```
 
 ## Обновления
-```bash
+```zsh
 vktool-cli update
 ```
 # Внимание: ![srakoeb2007](srakoeb2007.py) в бете! 
