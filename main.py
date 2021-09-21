@@ -1,5 +1,10 @@
-import click
 import os
+
+try:
+    import click
+except:
+    os.system("pip install click")    
+
 
 @click.command(help="run full version")
 def full():
