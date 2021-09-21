@@ -28,8 +28,6 @@ sudo apt install git python3 python3-pip -y
 
 # Скачиваем репозиторий
 git clone https://github.com/kotik06/VKTOOL
-# Установка питонячих библиотек + добавление алиаса в .bashrc, .zshrc
-cd VKTOOL && python main.py install
 ```
 
 ### Arch Linux
@@ -41,9 +39,11 @@ sudo pacman -Sy python
 sudo pacman -Sy python-pip
 # Скачиваем репозиторий
 git clone https://github.com/kotik06/VKTOOL
-# Установка питонячих библиотек + добавление алиаса в .bashrc, .zshrc
-cd VKTOOL && python main.py install
 ```
+# Установка питонячих библиотек + добавление алиаса в .bashrc, .zshrc
+```zsh
+cd VKTOOL && python main.py install
+``` 
 ## Запуск
 ```bash
 #Запуск обычноый версии
