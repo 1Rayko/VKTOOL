@@ -22,9 +22,7 @@ sudo apt install git python3 python3-pip -y
 
 ## Arch Linux
 ```zsh
-sudo pacman -Sy git 
-sudo pacman -Sy python
-sudo pacman -Sy python-pip
+sudo pacman -Sy git python python-pip --noconfirm
 ```
 
 ### Клонируем репозиторий
@@ -49,4 +47,9 @@ vktool-cli light
 ```zsh
 vktool-cli update
 ```
+
+
 # Внимание: ![srakoeb2007](srakoeb2007.py) в бете! 
+ну как в бете ._. 
+мне просто лень приводить эту махину в чувства
+![Image](https://im0-tub-ru.yandex.net/i?id=a7149cc0af4d96ac70ddb1ce98857701&n=13)
