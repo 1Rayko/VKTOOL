@@ -5,11 +5,15 @@ from threading import Thread
 import urllib.request
 import threading
 from vk_api import VkUpload
-from python3_anticaptcha import ImageToTextTask
-from python3_anticaptcha import errors
 
-from PIL import Image, ImageDraw, ImageFont
 
+
+try:
+    from PIL import Image, ImageDraw, ImageFont
+    t=""
+except:
+    print("PIL не установлен, накрутка фото со счетчиком не доступна")
+    t="\033[33m[\033[31mX\033[33m]"
 '''
 Блин, оптимизация нужна :( [28.09.2021]
 ёпересете   пару лишних модулей убрал (Реально хз для чего я их добавил ._.) 
@@ -63,12 +67,12 @@ print("""
 {1}[{0}3{1}]- srakoeb2007(beta) {2}
 {1}[{0}4{1}]- мульти накрутка коментариев {2}
 {1}[{0}5{1}]- парсер пользователей из паблика + добавление их в друзья {2}
-{1}[{0}6{1}]- накрутка фото {2}
+{1}[{0}6{1}]{3}- накрутка фото {2}
 {1}[{0}7{1}]- скачивание фото {2}
 {1}[{0}8{1}]- накрутка сообщений {2}
 {1}[{0}9{1}]- отправка заявок в друзья {2}
 {1}[{0}10{1}]- 1000-7 статус {2}
-""".format(red,yellow,reset))
+""".format(red,yellow,reset,t))
 opt = str(input('\033[35m[-->]\033[39m'))
 
 if opt=='1':
