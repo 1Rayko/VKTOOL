@@ -6,14 +6,17 @@ import urllib.request
 import threading
 from vk_api import VkUpload
 
-
+os.system('clear')
 
 try:
     from PIL import Image, ImageDraw, ImageFont
     t=""
 except:
-    print("PIL не установлен, накрутка фото со счетчиком не доступна")
+    print("Pillow не установлен, накрутка фото со счетчиком не доступна")
     t="\033[33m[\033[31mX\033[33m]"
+    time.sleep(0.1)
+    
+    
 '''
 Блин, оптимизация нужна :( [28.09.2021]
 ёпересете   пару лишних модулей убрал (Реально хз для чего я их добавил ._.) 
@@ -59,7 +62,7 @@ green = '\033[32m'
 
  
     #image.show()
-os.system('clear')
+
 print(random.choice(banner))
 print("""
 {1}[{0}1{1}]- накрутка комментариев 
