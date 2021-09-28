@@ -52,4 +52,4 @@ vktool-cli update
 # Внимание: ![srakoeb2007](srakoeb2007.py) в бете! 
 ну как в бете ._. 
 мне просто лень приводить эту махину в чувства
-![Image](https://im0-tub-ru.yandex.net/i?id=a7149cc0af4d96ac70ddb1ce98857701&n=13)
+![Image](https://im0-tub-ru.yandex.net/i?id=abb5fe5771dc6f9e9b734423eeae7d3c&n=13)
