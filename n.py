@@ -1,29 +1,35 @@
 # -*- coding: utf-8 -*-
-import vk_api,time,random,vk,os
-from colorama import init
-import requests, vk_api, random,time,traceback,json,importlib
-try:
-    import info
-    import pod
-except:
-    pass
+import vk_api,time,random,os
+import requests, vk_api, random,time,json,importlib
 from threading import Thread
-import traceback
 import urllib.request
 import threading
 from vk_api import VkUpload
-from vk_api.longpoll import VkLongPoll, VkEventType, VkChatEventType
-from vk_api.bot_longpoll import VkBotLongPoll, VkBotEventType, VkBotMessageEvent
 from python3_anticaptcha import ImageToTextTask
 from python3_anticaptcha import errors
+
 from PIL import Image, ImageDraw, ImageFont
+
+'''
+Блин, оптимизация нужна :( [28.09.2021]
+ёпересете   пару лишних модулей убрал (Реально хз для чего я их добавил ._.) 
+
+
+
+
+https://github.com/kotik06/VKTOOL
+
+Над утилитой трудились: kotik06 (Я), alonesain, Domen (Хелпанул с накруткой фото) && Huukir (вот ему п***ы дать нужно,расп****й еще тот)
+
+'''
+
 banner = ["""\033[34m____   ________  __. __                .__   
 \   \ /   /    |/ _|/  |_  ____   ____ |  |  
  \   Y   /|      < \   __\/  _ \ /  _ \|  |  
   \     / |    |  \ |  | (  <_> |  <_> )  |__
    \___/  |____|__ \|__|  \____/ \____/|____/
                   \/                         
-\033[39m by @kotik06 (sudoreboot2020) && alonesain && Domen && Huukir""",
+\033[39m by github.com/kotik06""",
     """\033[31m _   _ _   ___              _ 
 | | | | | / / |            | |
 | | | | |/ /| |_ ___   ___ | |
@@ -31,10 +37,7 @@ banner = ["""\033[34m____   ________  __. __                .__
 \ \_/ / |\  \ || (_) | (_) | |
  \___/\_| \_/\__\___/ \___/|_|\033[39m
                               
-    by @kotik06 (sudoreboot2020) && alonesain && Domen && Huukir""",
-    """\033[35m\  /|/_|_ _  _ |
- \/ |\ | (_)(_)|
-\033[39m by @kotik06 (sudoreboot2020) && alonesain && Domen && Huukir"""]
+    by github.com/kotik06"""]
 red = '\033[31m'
 yellow = '\033[33m'
 reset = '\033[39m'
@@ -685,5 +688,6 @@ elif opt == '10':
                     i-=7
                 print("zxc")
                 time.sleep(1)
+                
         except Exception as e:
             print("{0}error{1}".format(red,reset),e)
