@@ -9,7 +9,9 @@ except:
     print("click installed\nrestart vktool-cli")
        
 
-
+@click.command(help="1337liker's jokes")
+def one_jokes():
+    os.system('cd ~/VKTOOL && python jokes.py')
 @click.command(help="run full version")
 def full():
     os.system('cd ~/VKTOOL && python n.py')
@@ -59,6 +61,7 @@ WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
 cli.add_command(update)
 cli.add_command(full)
 cli.add_command(light)
+cli.add_command(one_jokes)
 cli.add_command(install)
 if __name__ == "__main__":
     cli()
