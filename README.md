@@ -51,7 +51,7 @@ vktool-cli one-jokes
 vktool-cli update
 ```
 
-#### АХТУНГ 
+# АХТУНГ 
 
 Идет перепись скрипта на Python 3.10
 
