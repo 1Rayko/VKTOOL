@@ -51,6 +51,11 @@ vktool-cli one-jokes
 vktool-cli update
 ```
 
+#### АХТУНГ 
+
+Идет перепись скрипта на Python 3.10
+
+
 
 # Внимание: ![srakoeb2007](srakoeb2007.py) в бете! 
 ну как в бете ._. 
