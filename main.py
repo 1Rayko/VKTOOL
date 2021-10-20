@@ -11,15 +11,15 @@ except:
 
 @click.command(help="1337liker's jokes")
 def one_jokes():
-    os.system('cd ~/VKTOOL && python jokes.py')
+    os.system('cd ~/VKTOOL && python3.10 jokes.py')
 @click.command(help="run full version")
 def full():
-    os.system('cd ~/VKTOOL && python n.py')
+    os.system('cd ~/VKTOOL && python3.10 n.py')
 
     
 @click.command(help="run light version")
 def light():
-    os.system('cd ~/VKTOOL && python light.py')
+    os.system('cd ~/VKTOOL && python3.10 light.py')
 
     
 @click.command(help="check and install updates")
@@ -28,10 +28,10 @@ def update():
 
 @click.command(help="install requirements, create an alias in .bashrc / .zshrc")
 def install():
-    os.system('pip install vk_api vk colorama Pillow python3_anticaptcha')
+    os.system('python3.10 -m pip install vk_api vk colorama Pillow python3_anticaptcha')
     print("requirements installed")
-    os.system('''echo "alias vktool-cli='python ~/VKTOOL/main.py'" >> ~/.bashrc''')
-    os.system('''echo "alias vktool-cli='python ~/VKTOOL/main.py'" >> ~/.zshrc''')
+    os.system('''echo "alias vktool-cli='python3.10 ~/VKTOOL/main.py'" >> ~/.bashrc''')
+    os.system('''echo "alias vktool-cli='python3.10 ~/VKTOOL/main.py'" >> ~/.zshrc''')
     os.system("cd ~ &&  clear")
     print("Done")
 @click.group()
