@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 import os
 
 try:
@@ -5,7 +6,7 @@ try:
 except:
     print("module click not installed")
     print("-------------------------")
-    os.system("pip install click") 
+    os.system("python -m pip install click") 
     print("click installed\nrestart vktool-cli")
        
 
@@ -26,13 +27,16 @@ def light():
 def update():
     os.system('cd ~/VKTOOL && git pull')
 
-@click.command(help="install requirements, create an alias in .bashrc / .zshrc")
+@click.command(help="install requirements, install vktool-cli to /usr/local/bin")
 def install():
-    os.system('python3.10 -m pip install vk_api vk colorama Pillow python3_anticaptcha')
+    os.system('python -m pip install vk_api vk colorama Pillow python3_anticaptcha')
     print("requirements installed")
-    os.system('''echo "alias vktool-cli='python3.10 ~/VKTOOL/main.py'" >> ~/.bashrc''')
-    os.system('''echo "alias vktool-cli='python3.10 ~/VKTOOL/main.py'" >> ~/.zshrc''')
-    os.system("cd ~ &&  clear")
+    #os.system("bash ~/VKTOOL/install.sh")
+    #vktool="#!/bin/bash\npython ~/VKTOOL/main.py"
+    #os.system(f'echo "{vktool}" >> /usr/local/bin/vktool-cli')
+    
+    os.system(f'cp /home/{os.getlogin()}/VKTOOL/main.py /usr/local/bin/vktool-cli')
+    os.system('chmod a+x /usr/local/bin/vktool-cli')
     print("Done")
 @click.group()
 def cli():
