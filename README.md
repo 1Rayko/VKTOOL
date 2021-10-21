@@ -30,9 +30,9 @@ sudo pacman -Sy git python python-pip --noconfirm
 git clone https://github.com/kotik06/VKTOOL
 ```
 
-### Установка питонячих библиотек + добавление алиаса в .bashrc, .zshrc
+### Установка питонячих библиотек + добавление скрипта в /usr/local/bin
 ```zsh
-cd VKTOOL && python main.py install
+cd ~/VKTOOL && sudo python main.py install
 ``` 
 ### Запуск
 ```zsh
