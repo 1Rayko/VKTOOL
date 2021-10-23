@@ -7,14 +7,17 @@
 
 
 ## УСТАНОВКА:
-# Установка python3.10 ```zsh
+# Установка python3.10 
+```zsh
 wget https://www.python.org/ftp/python/3.10.0/Python-3.10.0.tgz 
 tar xzvf Python-3.10.0.tgz 
 cd Python-3.10.0.tgz 
 ./configure --prefix=$HOME/python-3.10.0
 make
 make install
-$HOME/python-3.10.0/bin/python3.10 ```
+$HOME/python-3.10.0/bin/python3.10
+```
+
 ### Устанавливаем системные зависимости
 ## Termux
 
