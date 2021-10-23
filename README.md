@@ -18,7 +18,7 @@ make install
 $HOME/python-3.10.0/bin/python3.10
 sudo ln -sf /usr/bin/python3.10 /usr/bin/python`
 
-``
+```
 
 ### Устанавливаем системные зависимости
 ## Termux
