@@ -1,9 +1,9 @@
 # VKTOOL
 
 
-![Image](menu.png)
-![Image](2.png)
-![Image](3.png)
+![Image](img/menu.png)
+![Image](img/2.png)
+![Image](img/3.png)
 
 
 ## УСТАНОВКА:
