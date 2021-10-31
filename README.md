@@ -6,8 +6,8 @@
 ![Image](img/3.png)
 ![Image](img/4.png)
 
-## УСТАНОВКА:
-### Установка python3.10 
+## УСТАНОВКА Python3.10 :
+### Other distro's
 ```zsh
 wget https://www.python.org/ftp/python/3.10.0/Python-3.10.0.tgz 
 tar xzvf Python-3.10.0.tgz 
