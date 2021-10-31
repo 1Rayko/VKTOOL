@@ -7,7 +7,7 @@
 ![Image](img/4.png)
 
 ## УСТАНОВКА:
-# Установка python3.10 
+### Установка python3.10 
 ```zsh
 wget https://www.python.org/ftp/python/3.10.0/Python-3.10.0.tgz 
 tar xzvf Python-3.10.0.tgz 
@@ -19,39 +19,39 @@ $HOME/python-3.10.0/bin/python3.10
 sudo ln -sf /usr/bin/python3.10 /usr/bin/python
 ```
 
-# Arch install
+### Arch install
 ```
 git clone https://aur.archlinux.org/python310.git && cd python310 && makepkg -si
 sudo ln -sf /usr/bin/python3.10 /usr/bin/python
 
 ```
-### Устанавливаем системные зависимости
-## Termux
+## Устанавливаем системные зависимости
+### Termux
 
 ```zsh
 pkg install git python3 python3-pip -y
 ```
 
-## Ubuntu/Debian
+### Ubuntu/Debian
 ```zsh
 sudo apt install git python3 python3-pip -y
 ```
 
-## Arch Linux
+### Arch Linux
 ```zsh
 sudo pacman -Sy git python python-pip --noconfirm
 ```
 
-### Клонируем репозиторий
+## Клонируем репозиторий
 ```zsh
 git clone https://github.com/kotik06/VKTOOL
 ```
 
-### Установка питонячих библиотек + добавление скрипта в /usr/local/bin
+## Установка питонячих библиотек + добавление скрипта в /usr/local/bin
 ```zsh
 cd ~/VKTOOL && sudo python main.py install
 ``` 
-### Запуск
+## Запуск
 ```zsh
 #Запуск обычноый версии
 vktool-cli full 
@@ -66,18 +66,18 @@ vktool-cli story
 vktool-cli one-jokes
 ```
 
-### Обновления
+## Обновления
 ```zsh
 vktool-cli update
 ```
 
-# АХТУНГ 
+## АХТУНГ 
 
 Идет перепись скрипта на Python 3.10
 
 
 
-# Внимание: ![srakoeb2007](srakoeb2007.py) в бете! 
+## Внимание: ![srakoeb2007](srakoeb2007.py) в бете! 
 ну как в бете ._. 
 мне просто лень приводить эту махину в чувства
 ![Image](https://im0-tub-ru.yandex.net/i?id=abb5fe5771dc6f9e9b734423eeae7d3c&n=13)
