@@ -1,4 +1,4 @@
-# VKTOOL
+# VKTOOL - CLI утилита для ВКонтакте 
 
 
 ![Image](img/1.png)
