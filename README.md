@@ -17,9 +17,14 @@ make
 make install
 $HOME/python-3.10.0/bin/python3.10
 sudo ln -sf /usr/bin/python3.10 /usr/bin/python
-
 ```
 
+# Arch install
+```
+git clone https://aur.archlinux.org/python310.git && cd python310 && makepkg -si
+sudo ln -sf /usr/bin/python3.10 /usr/bin/python
+
+```
 ### Устанавливаем системные зависимости
 ## Termux
 
