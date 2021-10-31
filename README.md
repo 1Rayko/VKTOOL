@@ -54,6 +54,9 @@ vktool-cli full
 #Запуск лайт версии
 vktool-cli light
 
+#Загрузка историй
+vktool-cli story
+
 #Создание записей с черными шуточками :q
 vktool-cli one-jokes
 ```
