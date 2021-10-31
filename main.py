@@ -8,7 +8,9 @@ except:
     print("-------------------------")
     os.system("python -m pip install click") 
     print("click installed\nrestart vktool-cli")
-       
+@click.command(help="Upload history")
+def story():
+    os.system("cd ~/VKTOOL && python3.10 story.py")
 
 @click.command(help="1337liker's jokes")
 def one_jokes():
@@ -67,5 +69,6 @@ cli.add_command(full)
 cli.add_command(light)
 cli.add_command(one_jokes)
 cli.add_command(install)
+cli.add_command(story)
 if __name__ == "__main__":
     cli()
