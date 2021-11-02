@@ -49,7 +49,7 @@ git clone https://github.com/kotik06/VKTOOL
 ```
 #### Запуск установщика
 ```bash
-cd ~/VKTOOL && python3.10 main.py install
+cd ~/VKTOOL && sudo python3.10 main.py install
 ```
 ---
 ## Запуск
