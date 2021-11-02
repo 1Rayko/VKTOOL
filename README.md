@@ -42,12 +42,13 @@ python3.10 -m ensurepip --default-pip
 ```bash
 python3.10 -m pip install click vk_api Pillow
 ```
-### Установка VKTOOL
-#### Клонирование репозитория
+---
+## Установка VKTOOL
+### Клонирование репозитория
 ```bash
 git clone https://github.com/kotik06/VKTOOL 
 ```
-#### Запуск установщика
+### Запуск установщика
 ```bash
 cd ~/VKTOOL && sudo python3.10 main.py install
 ```
