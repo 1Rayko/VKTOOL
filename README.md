@@ -1,14 +1,29 @@
-# VKTOOL - CLI утилита для ВКонтакте 
+# VKTOOL - CLI утилита для ВКонтакте
 
+[![Readme Card](https://github-readme-stats.vercel.app/api/pin/?username=kotik06&repo=VKTOOL&show_icons=true&theme=dark)](https://github.com/kotik06/VKTOOL)
 
-![Image](img/1.png)
-![Image](img/2.png)
-![Image](img/3.png)
-![Image](img/4.png)
+## Установка
 
-## УСТАНОВКА Python3.10 :
-### Other distro's
-```zsh
+### Установка git
+#### Arch Linux
+```bash
+sudo pacman -S git --noconfirm
+```
+#### Debian, Ubuntu
+```bash
+sudo apt-get install -y git
+```
+---
+### Скачивание и установка Python3.10
+
+#### Arch Linux
+```bash
+git clone https://aur.archlinux.org/python310.git && cd python310 && makepkg -si
+sudo ln -sf /usr/bin/python3.10 /usr/bin/python
+```
+
+#### Другие дистрибутивы
+```bash
 wget https://www.python.org/ftp/python/3.10.0/Python-3.10.0.tgz 
 tar xzvf Python-3.10.0.tgz 
 cd Python-3.10.0.tgz 
@@ -18,66 +33,76 @@ make install
 $HOME/python-3.10.0/bin/python3.10
 sudo ln -sf /usr/bin/python3.10 /usr/bin/python
 ```
-
-### Arch install
+###### *PS. Следите за актуальными обновлениями вашего дистрибутива*
+---
+### Установка PIP
+```bash
+python3.10 -m ensurepip --default-pip
 ```
-git clone https://aur.archlinux.org/python310.git && cd python310 && makepkg -si
-sudo ln -sf /usr/bin/python3.10 /usr/bin/python
-
+```bash
+python3.10 -m pip install click vk_api Pillow
 ```
-## Устанавливаем системные зависимости
-### Termux
-
-```zsh
-pkg install git python3 python3-pip -y
+### Установка VKTOOL
+#### Клонирование репозитория
+```bash
+git clone https://github.com/kotik06/VKTOOL 
 ```
-
-### Ubuntu/Debian
-```zsh
-sudo apt install git python3 python3-pip -y
+#### Запуск установщика
+```bash
+cd ~/VKTOOL && python3.10 main.py install
 ```
-
-### Arch Linux
-```zsh
-sudo pacman -Sy git python python-pip --noconfirm
-```
-
-## Клонируем репозиторий
-```zsh
-git clone https://github.com/kotik06/VKTOOL
-```
-
-## Установка питонячих библиотек + добавление скрипта в /usr/local/bin
-```zsh
-cd ~/VKTOOL && sudo python main.py install
-``` 
+---
 ## Запуск
-```zsh
-#Запуск обычноый версии
-vktool-cli full 
 
-#Запуск лайт версии
+### Полная версия
+```bash
+vktool-cli full
+```
+### Версия для накрутки фото
+```bash
 vktool-cli light
-
-#Загрузка историй
+```
+### Загрузка историй
+```bash 
 vktool-cli story
-
-#Создание записей с черными шуточками :q
+```
+### "Шуточки"
+```bash
 vktool-cli one-jokes
 ```
-
+---
 ## Обновления
-```zsh
+### Вариант 1
+```bash
 vktool-cli update
 ```
+### Вариант 2 
+```bash
+cd ~/VKTOOL && git pull
+```
+---
+## Примеры использования
+*Получить token можно на vkhost.github.io*
+### Накрутка постов на стену
+```bash
+vktool-cli full
+```
+![Alt text](https://github.com/kotik06/VKTOOL/blob/master/img/5.png)
+![Alt text](https://github.com/kotik06/VKTOOL/blob/master/img/6.png)
 
-## АХТУНГ 
+### Накрутка фото
+```bash
+vktool-cli light
+```
+![Alt text](https://github.com/kotik06/VKTOOL/blob/master/img/7.png)
 
-Идет перепись скрипта на Python 3.10
+
+![Alt text](https://github.com/kotik06/VKTOOL/blob/master/img/8.png)
 
 
 
-## Внимание: ![srakoeb2007](srakoeb2007.py) в бете! 
-ну как в бете ._. 
-мне просто лень приводить эту махину в чувства
-![Image](https://im0-tub-ru.yandex.net/i?id=abb5fe5771dc6f9e9b734423eeae7d3c&n=13)
+
+
+
+
+
