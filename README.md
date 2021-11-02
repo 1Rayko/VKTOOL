@@ -95,8 +95,6 @@ vktool-cli full
 vktool-cli light
 ```
 ![Alt text](https://github.com/kotik06/VKTOOL/blob/master/img/7.png)
-
-
 ![Alt text](https://github.com/kotik06/VKTOOL/blob/master/img/8.png)
 
 
