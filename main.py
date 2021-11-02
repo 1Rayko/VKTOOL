@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 import os
 
 try:
@@ -5,34 +6,39 @@ try:
 except:
     print("module click not installed")
     print("-------------------------")
-    os.system("pip install click") 
+    os.system("python -m pip install click") 
     print("click installed\nrestart vktool-cli")
-       
+@click.command(help="Upload history")
+def story():
+    os.system("cd ~/VKTOOL && python3.10 story.py")
 
 @click.command(help="1337liker's jokes")
 def one_jokes():
-    os.system('cd ~/VKTOOL && python jokes.py')
+    os.system('cd ~/VKTOOL && python3.10 jokes.py')
 @click.command(help="run full version")
 def full():
-    os.system('cd ~/VKTOOL && python n.py')
+    os.system('cd ~/VKTOOL && python3.10 n.py')
 
     
 @click.command(help="run light version")
 def light():
-    os.system('cd ~/VKTOOL && python light.py')
+    os.system('cd ~/VKTOOL && python3.10 light.py')
 
     
 @click.command(help="check and install updates")
 def update():
     os.system('cd ~/VKTOOL && git pull')
 
-@click.command(help="install requirements, create an alias in .bashrc / .zshrc")
+@click.command(help="install requirements, install vktool-cli to /usr/local/bin")
 def install():
-    os.system('pip install vk_api vk colorama Pillow python3_anticaptcha')
+    os.system('python -m pip install vk_api vk colorama Pillow python3_anticaptcha')
     print("requirements installed")
-    os.system('''echo "alias vktool-cli='python ~/VKTOOL/main.py'" >> ~/.bashrc''')
-    os.system('''echo "alias vktool-cli='python ~/VKTOOL/main.py'" >> ~/.zshrc''')
-    os.system("cd ~ &&  clear")
+    #os.system("bash ~/VKTOOL/install.sh")
+    #vktool="#!/bin/bash\npython ~/VKTOOL/main.py"
+    #os.system(f'echo "{vktool}" >> /usr/local/bin/vktool-cli')
+    
+    os.system(f'cp /home/{os.getlogin()}/VKTOOL/main.py /usr/local/bin/vktool-cli')
+    os.system('chmod a+x /usr/local/bin/vktool-cli')
     print("Done")
 @click.group()
 def cli():
@@ -63,5 +69,6 @@ cli.add_command(full)
 cli.add_command(light)
 cli.add_command(one_jokes)
 cli.add_command(install)
+cli.add_command(story)
 if __name__ == "__main__":
     cli()
