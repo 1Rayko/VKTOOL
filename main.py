@@ -60,7 +60,7 @@ WWWWW0c;dXNWWWWWWWWWWWWWWWWWWWXx;c0WWWWW
 WWWWWNkc:loddddddddddddddddddol:ckNWWWWW
 WWWWWWNKOxddddddddddddddddddddxOXWWWWWWW
 WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
-(https://github.com/kotik06/VKTOOL/)
+(https://github.com/1Rayko/VKTOOL/)
 '''
     pass
 
