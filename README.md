@@ -1,6 +1,6 @@
 # VKTOOL - CLI утилита для ВКонтакте
 
-[![Readme Card](https://github-readme-stats.vercel.app/api/pin/?username=kotik06&repo=VKTOOL&show_icons=true&theme=dark)](https://github.com/kotik06/VKTOOL)
+[![Readme Card](https://github-readme-stats.vercel.app/api/pin/?username=1Rayko&repo=VKTOOL&show_icons=true&theme=dark)](https://github.com/kotik06/VKTOOL)
 
 ## Установка
 
@@ -46,7 +46,7 @@ python3.10 -m pip install click vk_api Pillow
 ## Установка VKTOOL
 ### Клонирование репозитория
 ```bash
-git clone https://github.com/kotik06/VKTOOL 
+git clone https://github.com/1Rayko/VKTOOL 
 ```
 ### Запуск установщика
 ```bash
@@ -88,15 +88,15 @@ cd ~/VKTOOL && git pull
 ```bash
 vktool-cli full
 ```
-![Alt text](https://github.com/kotik06/VKTOOL/blob/master/img/5.png)
-![Alt text](https://github.com/kotik06/VKTOOL/blob/master/img/6.png)
+![Alt text](https://github.com/1Rayko/VKTOOL/blob/master/img/5.png)
+![Alt text](https://github.com/1Rayko/VKTOOL/blob/master/img/6.png)
 
 ### Накрутка фото
 ```bash
 vktool-cli light
 ```
-![Alt text](https://github.com/kotik06/VKTOOL/blob/master/img/7.png)
-![Alt text](https://github.com/kotik06/VKTOOL/blob/master/img/8.png)
+![Alt text](https://github.com/1Rayko/VKTOOL/blob/master/img/7.png)
+![Alt text](https://github.com/1Rayko/VKTOOL/blob/master/img/8.png)
 
 
 
