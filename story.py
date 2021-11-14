@@ -8,7 +8,7 @@ print("\033[36m"+ r"""
  / __| __/ _ \| '__| |/ _ \/ __|
  \__ \ || (_) | |  | |  __/\__ \
  |___/\__\___/|_|  |_|\___||___/
-(https://github.com/kotik06/VKTOOL)                                
+(https://github.com/1Rayko/VKTOOL)                                
         """+"\033[39m")
 def main():
     token = input("Токен:").strip() 
