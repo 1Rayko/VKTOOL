@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 import os
 
 try:
@@ -6,7 +6,7 @@ try:
 except:
     print("module click not installed")
     print("-------------------------")
-    os.system("python -m pip install click") 
+    os.system("python3.10 -m pip install click") 
     print("click installed\nrestart vktool-cli")
 @click.command(help="Upload history")
 def story():
@@ -19,26 +19,25 @@ def one_jokes():
 def full():
     os.system('cd ~/VKTOOL && python3.10 n.py')
 
-    
 @click.command(help="run light version")
 def light():
     os.system('cd ~/VKTOOL && python3.10 light.py')
 
-    
 @click.command(help="check and install updates")
 def update():
     os.system('cd ~/VKTOOL && git pull')
 
 @click.command(help="install requirements, install vktool-cli to /usr/local/bin")
 def install():
-    os.system('python -m pip install vk_api vk colorama Pillow python3_anticaptcha')
+    os.system('python3.10 -m pip install vk_api vk colorama Pillow python3_anticaptcha')
     print("requirements installed")
     #os.system("bash ~/VKTOOL/install.sh")
     #vktool="#!/bin/bash\npython ~/VKTOOL/main.py"
     #os.system(f'echo "{vktool}" >> /usr/local/bin/vktool-cli')
-    
-    os.system(f'cp /home/{os.getlogin()}/VKTOOL/main.py /usr/local/bin/vktool-cli')
-    os.system('chmod a+x /usr/local/bin/vktool-cli')
+    user = os.getlogin()
+    # os.system(f"cp /home/{user}/VKTOOL/main.py /usr/local/bin/vktool-cli")
+    os.system("cp /home/{}/VKTOOL/main.py /usr/local/bin/vktool-cli".format(user))
+    os.system("chmod +x /usr/local/bin/vktool-cli")
     print("Done")
 @click.group()
 def cli():
