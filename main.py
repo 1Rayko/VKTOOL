@@ -25,7 +25,7 @@ def light():
 
 @click.command(help="check and install updates")
 def update():
-    os.system('cd ~/VKTOOL && git pull')
+    os.system('cd ~/VKTOOL && git pull && sudo python3.10 main.py install')
 
 @click.command(help="install requirements, install vktool-cli to /usr/local/bin")
 def install():
