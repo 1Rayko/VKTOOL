@@ -13,6 +13,10 @@ sudo pacman -S git --noconfirm
 ```bash
 sudo apt-get install -y git
 ```
+#### Void Linux
+```bash
+sudo xbps-install -S git
+```
 ---
 ### Скачивание и установка Python3.10
 
@@ -21,7 +25,10 @@ sudo apt-get install -y git
 git clone https://aur.archlinux.org/python310.git && cd python310 && makepkg -si
 sudo ln -sf /usr/bin/python3.10 /usr/bin/python
 ```
-
+#### Void Linux
+```bash
+sudo xbps-install -S python3 python3-pip
+```
 #### Другие дистрибутивы
 ```bash
 wget https://www.python.org/ftp/python/3.10.0/Python-3.10.0.tgz 
@@ -75,11 +82,11 @@ vktool-cli one-jokes
 ## Обновления
 ### Вариант 1
 ```bash
-vktool-cli update
+sudo vktool-cli update
 ```
 ### Вариант 2 
 ```bash
-cd ~/VKTOOL && git pull
+cd ~/VKTOOL && git pull && sudo python main.py install
 ```
 ---
 ## Примеры использования
