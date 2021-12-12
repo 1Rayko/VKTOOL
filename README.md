@@ -86,7 +86,7 @@ sudo vktool-cli update
 ```
 ### Вариант 2 
 ```bash
-cd ~/VKTOOL && git pull && sudo python main.py install
+cd ~/VKTOOL && git pull && sudo python3.10 main.py install
 ```
 ---
 ## Примеры использования
