@@ -22,30 +22,14 @@ sudo xbps-install -S git
 
 #### Arch Linux
 ```bash
-git clone https://aur.archlinux.org/python310.git && cd python310 && makepkg -si
-sudo ln -sf /usr/bin/python3.10 /usr/bin/python
+sudo pacman -Sy python python-pip
 ```
 #### Void Linux
 ```bash
 sudo xbps-install -S python3 python3-pip
 ```
-#### Другие дистрибутивы
-```bash
-wget https://www.python.org/ftp/python/3.10.0/Python-3.10.0.tgz 
-tar xzvf Python-3.10.0.tgz 
-cd Python-3.10.0.tgz 
-./configure --prefix=$HOME/python-3.10.0
-make
-make install
-$HOME/python-3.10.0/bin/python3.10
-sudo ln -sf /usr/bin/python3.10 /usr/bin/python
-```
-###### *PS. Следите за актуальными обновлениями вашего дистрибутива*
----
-### Установка PIP
-```bash
-python3.10 -m ensurepip --default-pip
-```
+
+### Установка PIP зависимостей
 ```bash
 python3.10 -m pip install click vk_api Pillow
 ```
@@ -57,7 +41,7 @@ git clone https://github.com/1Rayko/VKTOOL
 ```
 ### Запуск установщика
 ```bash
-cd ~/VKTOOL && sudo python3.10 main.py install
+cd ~/VKTOOL && sudo python main.py install
 ```
 ---
 ## Запуск
@@ -86,7 +70,7 @@ sudo vktool-cli update
 ```
 ### Вариант 2 
 ```bash
-cd ~/VKTOOL && git pull && sudo python3.10 main.py install
+cd ~/VKTOOL && git pull && sudo python main.py install
 ```
 ---
 ## Примеры использования
