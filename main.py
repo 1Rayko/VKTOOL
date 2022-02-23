@@ -1,3 +1,4 @@
+#!/usr/bin/pydoc3.10
 import os,sys
 
 
