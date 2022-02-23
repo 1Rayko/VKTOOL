@@ -30,6 +30,12 @@ cd ~/VKTOOL && bash install
 ---
 
 ## Запуск
+### Получение справки
+
+```bash
+vktool-cli -h 
+```
+
 ### Полная версия
 ```bash
 vktool-cli full
