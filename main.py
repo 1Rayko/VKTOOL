@@ -2,7 +2,7 @@
 import os,sys
 
 
-def help():
+def vkhelp():
     print( '''
     WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
     WWWWWWWWNXK00KK0K000KKKKKKK00KXNWWWWWWWW
@@ -56,7 +56,7 @@ def help():
 if len(sys.argv)>1:
     match sys.argv[1].strip():
         case "-h"   | "--help":
-            help()
+            vkhelp()
         case "-v"   | "--version":
             print(3.0 )
         case "-f"   | "full" : 
@@ -70,6 +70,6 @@ if len(sys.argv)>1:
         case "-u"   | "update":
             os.system("cd ~/VKTOOL && git pull && bash install")
         case _:
-            help()
+            vkhelp()
 else:
-    help()
+    vkhelp()
