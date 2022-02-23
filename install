@@ -1,0 +1,20 @@
+#! /bin/bash
+
+python3 -m pip install vk_api colorama Pillow 
+
+mv ~/VKTOOL/main.py ~/.local/bin/vktool-cli
+echo "mv main.py"
+chmod +x ~/.local/bin/vktool-cli
+echo "chmod +x"
+
+if [ "$SHELL"="/bin/zsh" ];then
+
+    echo "export PATH=~/.local/bin:$PATH" >> ~/.zshrc 
+else 
+    echo "export PATH=~/.local/bin:$PATH" >> ~/.bashrc 
+fi
+
+
+export PATH=~/.local/bin:$PATH 
+echo "export PATH"
+echo "Done"

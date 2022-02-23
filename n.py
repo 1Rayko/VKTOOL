@@ -14,29 +14,16 @@ except:
     time.sleep(0.1)
     
     
-'''
-Блин, оптимизация нужна :( [28.09.2021]
-ёпересете   пару лишних модулей убрал (Реально хз для чего я их добавил ._.) 
 
-
-
-
-https://github.com/kotik06/VKTOOL
-
-Над утилитой трудились: kotik06 (Я), alonesain, Domen (Хелпанул с накруткой фото) && Huukir (вот ему п***ы дать нужно,расп****й еще тот)
-
-Нужно переписать на этот ваш 3.10 че (18.10.2021)
-(19.10.2021) все еще переписываю
-
-'''
-
-banner = ["""\033[34m____   ________  __. __                .__   
+banner = ["""
+\033[34m
+____   ________  __. __                .__   
 \   \ /   /    |/ _|/  |_  ____   ____ |  |  
  \   Y   /|      < \   __\/  _ \ /  _ \|  |  
   \     / |    |  \ |  | (  <_> |  <_> )  |__
    \___/  |____|__ \|__|  \____/ \____/|____/
                   \/                         
-\033[39m by github.com/kotik06""",
+\033[39m by github.com/1Rayko""",
     """\033[31m _   _ _   ___              _ 
 | | | | | / / |            | |
 | | | | |/ /| |_ ___   ___ | |
@@ -44,37 +31,24 @@ banner = ["""\033[34m____   ________  __. __                .__
 \ \_/ / |\  \ || (_) | (_) | |
  \___/\_| \_/\__\___/ \___/|_|\033[39m
                               
-    by github.com/kotik06"""]
+    by github.com/1Rayko"""]
 red = '\033[31m'
 yellow = '\033[33m'
 reset = '\033[39m'
 mag = '\033[35m'
 green = '\033[32m'
-#ESC [ 30 m      # black
-#ESC [ 31 m      # red
-#ESC [ 32 m      # green
-#ESC [ 33 m      # yellow
-#ESC [ 34 m      # blue
-#ESC [ 35 m      # magenta
-#ESC [ 36 m      # cyan
-#ESC [ 37 m      # white
-#ESC [ 39 m      # reset
-
- 
-    #image.show()
 
 print(random.choice(banner))
 print("""
 {1}[{0}1{1}]- накрутка комментариев 
 {1}[{0}2{1}]- накрутка постов {2}
-{1}[{0}3{1}]- srakoeb2007(beta) {2}
-{1}[{0}4{1}]- мульти накрутка коментариев {2}
-{1}[{0}5{1}]- парсер пользователей из паблика + добавление их в друзья {2}
-{1}[{0}6{1}]{3}- накрутка фото {2}
-{1}[{0}7{1}]- скачивание фото {2}
-{1}[{0}8{1}]- накрутка сообщений {2}
-{1}[{0}9{1}]- отправка заявок в друзья {2}
-{1}[{0}10{1}]- 1000-7 статус {2}
+{1}[{0}3{1}]- мульти накрутка коментариев {2}
+{1}[{0}4{1}]- парсер пользователей из паблика + добавление их в друзья {2}
+{1}[{0}5{1}]{3}- накрутка фото {2}
+{1}[{0}6{1}]- скачивание фото {2}
+{1}[{0}7{1}]- накрутка сообщений {2}
+{1}[{0}8{1}]- отправка заявок в друзья {2}
+{1}[{0}9{1}]- 1000-7 статус {2}
 """.format(red,yellow,reset,t))
 opt = int(input('\033[35m[-->]\033[39m'))
 
@@ -129,38 +103,38 @@ match opt:
         except vk_api.exceptions.ApiError as error_msg:
             print('Недействительный токен')
 
-    case 3:
+    #case 3:
     #print('!!!srakoeb2007 is beta!!!')
-        l = int(input('[1]-Добавить токен профиля\n[2]-Добавить сообщение\n[3]-запустить\n[-->]'))
-        match l:
+    #    l = int(input('[1]-Добавить токен профиля\n[2]-Добавить сообщение\n[3]-запустить\n[-->]'))
+    #    match l:
 
-            case 1:
-                tk = str(input('Токен :'))
-                vk_session = vk_api.VkApi(token=tk)#запрос авторизации
-                vk = vk_session.get_api()#проверка
-                try:
-
-                    token = open ('token.txt','a+')
-                    token.white(str(tk)+'\n')
-                    token.close()
-                    print('Записано')
-                
-                except vk_api.exceptions.ApiError as error_msg:#если токен инвалид
-                    print(Fore.RED+'Данные недействительны')
-
-            case 2:
-                mg = input('Текст сообщения :')
-                f = open ('message.txt','a+')
-                f.write(str(mg)+'\n')
-                f.close()
-                print("Записано")
-
-            case 3:
-
-                os.system('python3 srakoeb2007.py')
-            case _:
-                print("Инвалидный параметр")
-    case 4:
+    #        case 1:
+    #            tk = str(input('Токен :'))
+    #           vk_session = vk_api.VkApi(token=tk)#запрос авторизации
+    #            vk = vk_session.get_api()#проверка
+    #            try:
+    #
+    #                token = open ('token.txt','a+')
+    #                token.white(str(tk)+'\n')
+    #                token.close()
+    #                print('Записано')
+    #            
+    #            except vk_api.exceptions.ApiError as error_msg:#если токен инвалид
+    #                print(Fore.RED+'Данные недействительны')
+    #
+    #        case 2:
+    #            mg = input('Текст сообщения :')
+    #            f = open ('message.txt','a+')
+    #            f.write(str(mg)+'\n')
+    #            f.close()
+    #            print("Записано")
+    #
+    #       case 3:
+    #
+    #            os.system('python3 srakoeb2007.py')
+    #        case _:
+    #            print("Инвалидный параметр")
+    case 3:
         print("{1}[{0}1{1}] - прочитать токены\n{1}[{0}2{1}] - добавить\n{1}[{0}3{1}] - очистить файл с токенами\n{1}[{0}4{1}] - запустить".format(red,yellow,reset))
         h = int(input('\033[35m[-->]\033[39m'))
         match h:
@@ -182,7 +156,7 @@ match opt:
                 file.close()
                 print('Записано')
             case 3:
-                os.system('rm -rv tk.txt')
+                os.remove('tk.txt')
                 os.system('touch tk.txt')
 
             case 4:
@@ -204,12 +178,10 @@ match opt:
                         b+=1
                     b=0
 
-    case 5:
-    
+    case 4:
         os.system('python parser.py')
-
-    case 6:
-        #print("спасибо за помощь Domen'у")
+    case 5:
+        #Domen, ты жив?
         j=int(input('[1]-накрутка своих фото\n[2]-накрутка манулов :D\n[3]-накрутка своих фото с счетчиком\n[4]-накрутка с потоками\n[-->]'))
         match j:
             case 1:
@@ -217,7 +189,6 @@ match opt:
                 
                 b=0
                 match s:
-    
                     case 2:
                         lo=str(input("Логин: "))
                         pa=str(input("Пароль: "))
@@ -225,8 +196,6 @@ match opt:
                     case _:
                         tk=str(input("Токен: "))
                         vk_session = vk_api.VkApi(token=tk,app_id='2685278')
-                
-                
                 upload = VkUpload(vk_session)
                 pot=str(input('Имя файла(или путь к нему): '))
                 al=int(input('id альбома:'))
@@ -251,7 +220,6 @@ match opt:
                         lo=str(input("Логин: "))
                         pa=str(input("Пароль: "))
                         vk_session = vk_api.VkApi(login=lo, password=pa, app_id='2685278')
-
                     case _ :
                         tk=str(input("token: "))
                         vk_session = vk_api.VkApi(token=tk,app_id='2685278')
@@ -262,11 +230,9 @@ match opt:
                 j=0
                 b=start
                 if count == 'qq':
-                
                     while 1:
 
                         image = Image.open("manul.jpg")
-
                         font = ImageFont.truetype("arial.ttf", 25)
                         drawer = ImageDraw.Draw(image)
                         drawer.text((150, 100), f"{b} манулов", font=font, fill='black')
@@ -274,7 +240,6 @@ match opt:
                         time.sleep(1)
                         try:
                             s = upload.photo(photos=f'manul{b}.jpg', album_id=al)
-                        
                             os.remove(f'manul{b}.jpg')
                             b += 1
                             j+=1
@@ -284,23 +249,19 @@ match opt:
                 else:        
                     while j != int(count):
                         image = Image.open("manul.jpg")
-
                         font = ImageFont.truetype("arial.ttf", 25)
                         drawer = ImageDraw.Draw(image)
                         drawer.text((150, 100), f"{b} манулов", font=font, fill='black')
-
                         image.save(f'manul{b}.jpg')
                         time.sleep(1)
                         try:
                             s = upload.photo(photos=f'manul{b}.jpg', album_id=al)
-                        
                             os.remove(f'manul{b}.jpg')
                             j += 1
                             b+=1
                             print(str(j)+"\033[32m фото загружено\033[39m")
                         except:
                             time.sleep(10)
-                            #print(str(j)+"\033[32m фото загружено\033[39m")
             case 3:
                 s=str(input('[1]-Авторизация по токену\n[2]-Авторизация по логину и паролю\n[-->] '))
                 match s:
@@ -312,7 +273,6 @@ match opt:
                     case _:
                         tk=str(input("token: "))
                         vk_session = vk_api.VkApi(token=tk,app_id='2685278')
-                       # vk_session.auth(token_only=True)
                 upload = VkUpload(vk_session)
                 al=int(input('id альбома:'))
                 p=str(input("Путь к исходному фото:"))
@@ -322,11 +282,9 @@ match opt:
                 j=0
                 b=start
                 if count == 'qq':
-                
                     while 1:
 
                         image = Image.open(p)
-
                         font = ImageFont.truetype("arial.ttf", 25)
                         drawer = ImageDraw.Draw(image)
                         drawer.text((150, 100), f"{b} {kogo}", font=font, fill='black')
@@ -334,7 +292,6 @@ match opt:
                         time.sleep(1)
                         try:
                             s = upload.photo(photos=f'{p}{b}.jpg', album_id=al)
-                        
                             os.remove(f'{p}{b}.jpg')
                             b += 1
                             j+=1
@@ -344,7 +301,6 @@ match opt:
                 else:        
                     while j != int(count):
                         image = Image.open(p)
-
                         font = ImageFont.truetype("arial.ttf", 25)
                         drawer = ImageDraw.Draw(image)
                         drawer.text((150, 100), f"{b} {kogo}", font=font, fill='black')
@@ -353,25 +309,18 @@ match opt:
                         time.sleep(1)
                         try:
                             s = upload.photo(photos=f'{p}{b}.jpg', album_id=al)
-                        
                             os.remove(f'{p}{b}.jpg')
                             j += 1
                             b+=1
                             print(str(j)+"\033[32m фото загружено\033[39m")
                         except:
                             time.sleep(10)
-                        #print(str(j)+"\033[32m фото загружено\033[39m")        
             case 4:
                 b = int(input("Количество потоков:"))
                 def a(tk,ph,al):
-                    
                     vk_session = vk_api.VkApi(token=tk,app_id='2685278')
-                     # vk_session.auth(token_only=True)
-
                     upload = VkUpload(vk_session)
-
                     b = 0
-
                     while 1:
                         try:
                             s = upload.photo(photos=ph, album_id=al)
@@ -386,7 +335,7 @@ match opt:
                     t = threading.Thread(target=a, args=(tk,ph,al))
                     t.start()
 
-    case 7:
+    case 6:
     
         url = str(input("Ссылка на фото: "))
 
@@ -396,7 +345,7 @@ match opt:
         out.close()
         print("Фото сохранено как img.jpg")
     
-    case 8:
+    case 7:
         #targets=map(str, input("Введите id людей, которым начать накрутку через пробел(Важно, чтобы все эти пользователи были в друзьях у ботов):").split())
         print('[1]-добавть ботов в файл bots.txt\n[2]-прочитать токены\n[3]-очистить файл с токенами\n[4]-запустить накрутку\n')
         pososo= str(input("[->>]"))
@@ -429,7 +378,7 @@ match opt:
                         try:
                             vk = vk_session.get_api()
                             try:
-                                vk.messages.createChat(user_ids=targets,title="накрутка by sudoreboot")
+                                vk.messages.createChat(user_ids=targets,title="github.com/1Rayko/VKTOOL")
                                 print("{0}Беседа создана с аккаунта{1}".format(green,reset),vk.account.getProfileInfo()["first_name"],vk.account.getProfileInfo()["last_name"])
                             except Exception as e:
                                 print("{0}error{1}".format(red,reset),e,vk.account.getProfileInfo()["first_name"],vk.account.getProfileInfo()["last_name"])
@@ -440,7 +389,7 @@ match opt:
                     time.sleep(20)
                     b=0
 
-    case 9:
+    case 8:
         u=int(input('id пользователя: '))
         file = open("bots.txt", "r",encoding='utf-8')#сука файл
         apikey = file.readlines()
@@ -454,14 +403,14 @@ match opt:
             vk_session = vk_api.VkApi(token=token[b])
             try:
                 vk = vk_session.get_api()
-                vk.friends.add(user_id=u,text="github.com/kotik06/VKTOOL")
+                vk.friends.add(user_id=u,text="github.com/1Rayko/VKTOOL")
                 print("{0}Заявка отправлена с аккаунта{1}".format(green,reset),vk.account.getProfileInfo()["first_name"],vk.account.getProfileInfo()["last_name"])
                 b+=1
             except Exception as e:
                 print("{0}error{1}".format(red,reset),e)
                 b+=1
 
-    case 10:
+    case 9:
 
         plaseholder = int(input("[1]-Авторизация по токену\n[2]-Авторизация по логину и паролю\n[-->]"))
         match plaseholder:
@@ -473,11 +422,8 @@ match opt:
                 lo=str(input("Введите логин:"))
                 pa= str(input("Введите пароль:"))
                 vk_session = vk_api.VkApi(login=lo, password=pa, app_id='2685278')
-                #vk_session.auth(token_only=True)
         try:
             vk = vk_session.get_api()
-            
-
             i=1000
             while 1:
                 vk.account.saveProfileInfo(status=f'{i}-7={i-7}')
